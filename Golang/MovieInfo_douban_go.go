@@ -5,6 +5,7 @@ import (
     "net/http"
 	"regexp"
 	"bytes"
+	"github.com/moovweb/gokogiri"
 )
 
 
@@ -21,16 +22,22 @@ func hq_url(gjz string) {
 	valid = regexp.MustCompile(`http://(.*?) `)
 	t := r[0]
 	r1 := valid.Find(t)
+	r1 = r1[:len(r1)-2]
 //	fmt.Println(string(r1[:len(r1)]))
-	r_url := string(r1[:len(r1)-1])
+	r_url := string(r1[:len(r1)])
 	resp, err = http.Get(r_url)
 	if err != nil {fmt.Println(err)}
 	buf = new(bytes.Buffer)
 	buf.ReadFrom(resp.Body)
 //	fmt.Println(buf.String())
-	valid = regexp.MustCompile(`<span property="v:summary" class="">(.*?)</span>`)
-	r2 := valid.Find(buf.Bytes())
-	fmt.Println(string(r2[:len(r2)]))
+	doc, err := gokogiri.ParseHtml(buf.Bytes())
+	if err != nil {fmt.Println(err)}
+//	fmt.Println(doc.String())
+	foos, err := doc.Search("//span[@property='v:summary']")
+	if err != nil {fmt.Println(err)}
+	foo := foos[0]
+//	fmt.Println(len(foos))
+	fmt.Println(foo.String())
 }
 
 func main() {
