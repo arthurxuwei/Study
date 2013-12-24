@@ -1,18 +1,16 @@
 'use strict';	
 
 /* Controllers */
-var arthurConytollers = angular.module('arthurConytollers', []);
+var arthurContollers = angular.module('arthurContollers', []);
 
-arthurConytollers.controller('login', function($scope, $http, $location){
+arthurContollers.controller('login', ['$scope', '$location', 'User', function($scope, $location, User){
 	$scope.error = '';
 	
 	$scope.signin = function(){
 		$scope.error = "Login...";
-//		var email = $scope.email;
-//		var password = $scope.password;
-		$http.get('data/users.json').success(function(data) {
-			var data = data[0];
-			console.log(data.email);
+		var users = User.query(function (res){
+			console.log(res);
+			var data = res[0];
 			if (data.email === $scope.email && data.password === $scope.password) {
 				$location.path('/loginsuccess');
 			}
@@ -21,12 +19,12 @@ arthurConytollers.controller('login', function($scope, $http, $location){
 			$scope.error = 'password is wrong...';
 		});	
 	};
+}]);
+
+arthurContollers.controller('MyCtrl2', function(){
+
 });
 
-arthurConytollers.controller('MyCtrl2', function(){
-
-});
-
-arthurConytollers.controller('loginsuccess', function(){
+arthurContollers.controller('loginsuccess', function(){
 });
 
