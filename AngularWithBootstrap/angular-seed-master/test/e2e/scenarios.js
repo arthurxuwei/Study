@@ -7,38 +7,42 @@ describe('my app', function() {
   beforeEach(function() {
     browser().navigateTo('../../app/index.html');
   });
-
-
-  it('should automatically redirect to /view1 when location hash/fragment is empty', function() {
-    expect(browser().location().url()).toBe("/view1");
+  
+  afterEach(function() {
+    pause();
   });
 
 
-  describe('view1', function() {
+  it('should automatically redirect to /login when location hash/fragment is empty', function() {
+    expect(browser().location().url()).toBe("/login");
+  });
+
+
+  describe('login', function() {
 
     beforeEach(function() {
-      browser().navigateTo('#/view1');
+      browser().navigateTo('#/login');
     });
 
 
-    it('should render view1 when user navigates to /view1', function() {
-      expect(element('[ng-view] p:first').text()).
-        toMatch(/partial for view 1/);
+    it('should render login when user navigates to /login', function() {
+      expect(element('[ng-view] label:first').text()).
+        toMatch(/Login/);
     });
 
   });
 
 
-  describe('view2', function() {
+  describe('register', function() {
 
     beforeEach(function() {
-      browser().navigateTo('#/view2');
+      browser().navigateTo('#/register');
     });
 
 
-    it('should render view2 when user navigates to /view2', function() {
-      expect(element('[ng-view] p:first').text()).
-        toMatch(/partial for view 2/);
+    it('should render register when user navigates to /register', function() {
+      expect(element('[ng-view] label:first').text()).
+        toMatch(/Register/);
     });
 
   });
