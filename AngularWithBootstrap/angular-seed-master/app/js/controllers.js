@@ -21,8 +21,11 @@ arthurContollers.controller('login', ['$scope', '$location', 'User', function($s
 	};
 }]);
 
-arthurContollers.controller('MyCtrl2', function(){
-
+arthurContollers.controller('signin', function($scope){
+	$scope.register = function(){
+		console.log($scope.user.password);
+		console.log($scope.user.confirmPassword);
+	};
 });
 
 arthurContollers.controller('loginsuccess', function(){

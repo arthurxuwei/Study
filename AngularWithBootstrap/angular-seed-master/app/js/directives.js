@@ -3,9 +3,17 @@
 /* Directives */
 
 
-angular.module('arthur.directives', []).
-  directive('appVersion', ['version', function(version) {
-    return function(scope, elm, attrs) {
-      elm.text(version);
+var arthurDirectives = angular.module('arthurDirectives', []);
+
+arthurDirectives.directive('match', function ($parse) {
+    return {
+        require: 'ngModel',
+        link: function (scope, elem, attrs, ctrl) {
+            scope.$watch(function () {
+                return $parse(attrs.match)(scope) === ctrl.$modelValue;
+            }, function (currentValue) {
+                ctrl.$setValidity('mismatch', currentValue);
+            });
+        }
     };
-  }]);
+});
