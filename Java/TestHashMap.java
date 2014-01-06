@@ -49,7 +49,14 @@ public class TestHashMap {
 		
 		e2.set(3, "3");
 		System.out.println(e1.toString());
+//hashmap return reference
 		
+		HashMap<String, ExampleOne> l = new HashMap<>();
+		ExampleOne e3 = new ExampleOne(3, "3");
+		l.put("first", e3);
+		ExampleOne temp = l.get("first");
+		temp.set(3, "3x");
+		System.out.println(l.get("first"));
 /// HashMap function		
 		HashMap<String, Method> hf = new HashMap<String, Method>();
 		
