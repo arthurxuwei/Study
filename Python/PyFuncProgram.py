@@ -25,3 +25,12 @@ print zip([1,2,3], [1,2,3])
 print filter(lambda x: x&1 != 0, [1,2,3,4,5,6,7,8,9,10])
 
 print reduce(lambda x,y: x * y, [1,2,3,4,5])
+
+//currying
+def f(a):
+    def g(b, c, d):
+        print a,b,c,d
+    return g
+
+f1 = f(1)
+f1(2,3,4,5)
