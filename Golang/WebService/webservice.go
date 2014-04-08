@@ -1,14 +1,24 @@
 package main
 
 import (
+	"encoding/json"
 	"flag"
 	"html/template"
 	"io/ioutil"
 	"log"
 	"net"
 	"net/http"
+	"os"
 	"regexp"
+	"strconv"
 )
+
+type Config struct {
+	GlobalConfig  int
+	ServiceConfig struct {
+		Port int
+	}
+}
 
 var (
 	addr = flag.Bool("addr", false, "find open address and print to final-port.txt")
@@ -61,7 +71,7 @@ func saveHandler(w http.ResponseWriter, r *http.Request, title string) {
 	http.Redirect(w, r, "/view/"+title, http.StatusFound)
 }
 
-var templates = template.Must(template.ParseFiles("edit.html", "view.html"))
+var templates = template.Must(template.New("main.html").ParseGlob("views/*.html"))
 
 func renderTemplate(w http.ResponseWriter, tmpl string, p *Page) {
 	err := templates.ExecuteTemplate(w, tmpl+".html", p)
@@ -85,6 +95,18 @@ func makeHandler(fn func(http.ResponseWriter, *http.Request, string)) http.Handl
 }
 
 func main() {
+
+	filename := "config.json"
+
+	file, err := os.Open(filename)
+	if err != nil {
+		log.Fatal(err)
+	}
+	decoder := json.NewDecoder(file)
+	config := &Config{}
+	decoder.Decode(&config)
+	log.Print("port:" + strconv.Itoa(config.ServiceConfig.Port))
+	log.Print("global config:" + strconv.Itoa(config.GlobalConfig))
 	flag.Parse()
 	http.HandleFunc("/view/", makeHandler(viewHandler))
 	http.HandleFunc("/edit/", makeHandler(editHandler))
