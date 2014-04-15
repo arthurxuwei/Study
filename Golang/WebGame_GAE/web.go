@@ -7,6 +7,7 @@ package helloworld
 import (
 	"html/template"
 	"net/http"
+	"time"
 )
 
 func init() {
@@ -25,5 +26,5 @@ func renderTemplate(w http.ResponseWriter, content string) {
 }
 
 func handle(w http.ResponseWriter, r *http.Request) {
-	renderTemplate(w, "hello,world!")
+	renderTemplate(w, time.Now().Format(time.ANSIC))
 }
