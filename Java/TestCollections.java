@@ -1,9 +1,12 @@
 package test;
 
+import java.nio.channels.FileChannel.MapMode;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Collections;
@@ -63,5 +66,38 @@ public class TestCollections {
 		treeMap.put("test2", "fdas");
 		treeMap.put("test3", "fdas");
 		System.out.println(treeMap);
+		
+		
+		//sort List<Map<String, String>>
+		List<Map<String, String>> list = new ArrayList<Map<String, String>>();
+		Map<String, String> map1 = new HashMap<String, String>();
+		map1.put("name", "Josh");
+		Map<String, String> map2 = new HashMap<String, String>();
+		map2.put("name", "Anna");
+		Map<String, String> map3 = new HashMap<String, String>();
+		map3.put("name", "Bernie");
+		
+		list.add(map1);
+		list.add(map2);
+		list.add(map3);
+		
+		Comparator<Map<String, String>> mapComparator = new Comparator<Map<String, String>>() {
+			public int compare(Map<String, String> m1, Map<String, String> m2) {
+				return m1.get("name").compareTo(m2.get("name"));
+			}
+		};
+		
+		for (Map<String, String> map : list){
+			System.out.println(map.get("name"));
+		}
+		
+		Collections.sort(list, mapComparator);
+		
+		for (Map<String, String> map : list){
+			System.out.println(map.get("name"));
+		}
+		
 	}
+	
+	
 }
