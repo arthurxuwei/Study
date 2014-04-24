@@ -93,9 +93,10 @@ public class TestCollections {
 		
 		Collections.sort(list, mapComparator);
 		
-		for (Map<String, String> map : list){
-			System.out.println(map.get("name"));
-		}
+		Iterator<Map<String, String>> itor = list.iterator();
+		for (int i = 0; itor.hasNext(); i++)
+			System.out.println(itor.next().get("name"));
+		
 		
 	}
 	
