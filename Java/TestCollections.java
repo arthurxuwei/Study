@@ -1,6 +1,5 @@
 package test;
 
-import java.nio.channels.FileChannel.MapMode;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -96,6 +95,8 @@ public class TestCollections {
 		Iterator<Map<String, String>> itor = list.iterator();
 		for (int i = 0; itor.hasNext(); i++)
 			System.out.println(itor.next().get("name"));
+		
+		
 		
 		
 	}

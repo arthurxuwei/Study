@@ -2,6 +2,8 @@ package test;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.TreeMap;
 
 import data.ExampleOne;
 
@@ -33,22 +35,6 @@ public class TestHashMap {
 			System.out.println("Hash map do not contain Key");
 		}
 
-///reference
-		Integer a = new Integer(10);
-		Integer b = new Integer(20);
-		a = b;
-		b = 5;
-		System.out.println(a);
-
-		
-		ExampleOne e1 = new ExampleOne(1, "1");
-		ExampleOne e2 = new ExampleOne(2, "2");
-		
-		e1 = e2;
-		System.out.println(e1.toString());
-		
-		e2.set(3, "3");
-		System.out.println(e1.toString());
 //hashmap return reference
 		
 		HashMap<String, ExampleOne> l = new HashMap<>();
@@ -90,6 +76,26 @@ public class TestHashMap {
 		
 		hf.get("methodA").invoke(test);
 		hf.get("methodB").invoke(test);	
+		
+		
+		//Linked Hashmap
+		System.out.println("-----linkedHashMap-----");
+		HashMap<String, String> linkedHashMap = new LinkedHashMap<String, String>();
+		linkedHashMap.put("a", "abc");
+		linkedHashMap.put("c", "abc");
+		linkedHashMap.put("b", "abc");
+		
+		System.out.println(linkedHashMap);
+		
+		//Treemap
+		System.out.println("-----treeHashMap-----");
+		TreeMap<String, String> treeMap = new TreeMap<String, String>();
+		treeMap.put("a", "abc");
+		treeMap.put("c", "abc");
+		treeMap.put("b", "abc");
+		
+		System.out.println(treeMap);
+		
 	}
 	
 	public int methodA() {
