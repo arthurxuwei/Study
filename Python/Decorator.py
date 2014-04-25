@@ -1,5 +1,12 @@
 import time
 
+def line(func):
+	def wrapper():
+		print '----------'
+		func()
+		print '----------'
+	return wrapper
+
 def timeit(func):
 	def wrapper():
 		start = time.clock()
@@ -8,6 +15,7 @@ def timeit(func):
 		print 'Time Elapse: ', end - start
 	return wrapper
 	
+@line
 @timeit
 def foo():
 	print 'in foo()'
