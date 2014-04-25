@@ -18,7 +18,7 @@ describe('my app', function() {
   });
 
 
-  describe('login', function() {
+  describe('login', function() { 
 
     beforeEach(function() {
       browser().navigateTo('#/login');
