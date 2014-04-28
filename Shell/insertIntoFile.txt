@@ -1,0 +1,4 @@
+//insert a text at the beginning of a file
+sed -i '1s/^/<add text> /' <file>
+
+
