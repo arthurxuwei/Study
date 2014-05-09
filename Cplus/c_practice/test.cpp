@@ -8,6 +8,14 @@ void f(char *x){
     *x='a';
 }
 
+inline char hdigit(int n) {
+	return "0123456789abcdef"[n&0xf];
+}
+
+inline char selector(int n) {
+	return "abcdefghijklmnopqrstuvwxyz"[n];
+}
+
 int main(int argc, char** argv) {
     int *a[2][3];
     printf("size is: %lu\n", sizeof(a));
@@ -16,5 +24,13 @@ int main(int argc, char** argv) {
     std::strcpy(str, "hello");
     f(str);
     std::cout << str << std::endl;
+
+    std::cout << hdigit(5) << std::endl;
+
+    std::cout << hdigit(14) << std::endl;
+
+    std::cout << selector(0) << std::endl;
+
+    std::cout << selector(5) << std::endl;
     return 0;
 }
