@@ -32,5 +32,15 @@ int main(int argc, char** argv) {
     std::cout << selector(0) << std::endl;
 
     std::cout << selector(5) << std::endl;
-    return 0;
+
+	printf("size of int: %lu\n", sizeof(int));
+
+	printf("size of pointer: %lu\n", sizeof(int*));
+
+	//int t = 1 << 31; largest neg-int
+	int t = ~(1 << 31); //largest int
+
+    printf("left shift: %d\n",t);
+	printf("%x", t);	
+	return 0;
 }
