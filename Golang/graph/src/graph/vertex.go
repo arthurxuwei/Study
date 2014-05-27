@@ -1,7 +1,7 @@
 package graph
 
 import (
-	"fmt"
+	//	"fmt"
 	"math/rand"
 )
 
@@ -20,7 +20,6 @@ func newVertex() *Vertex {
 
 func (v *Vertex) edgeiterate(c chan<- *Edge) {
 	for _, val := range v.edgeMap {
-		fmt.Print("edge val")
 		c <- val
 	}
 	close(c)
@@ -37,7 +36,7 @@ func (v *Vertex) registerEdge(e *Edge) {
 }
 
 func (v *Vertex) removeEdge(e *Edge) {
-	v.edgeMap[e.Identifier()] = nil
+	delete(v.edgeMap, e.Identifier())
 }
 
 func (v *Vertex) Identifier() int64 {

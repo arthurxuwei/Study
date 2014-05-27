@@ -1,7 +1,7 @@
 package graph
 
 import (
-	"fmt"
+	//	"fmt"
 	"graph/disjoint"
 )
 
@@ -54,22 +54,19 @@ outer:
 		case e, ok := <-iteration_channel:
 			if ok {
 				//read data.
-				fmt.Println("processing data: %d", e.id)
 				e.removeSelf()
-				g.edgeMap[e.Identifier()] = nil
+				delete(g.edgeMap, e.Identifier())
 			} else {
 				//channel close.
-				fmt.Println("channel closed")
 				break outer
 			}
 		default:
 			//no value ready, moving on.
-			fmt.Println("No value!")
 			break
 		}
 	}
 
-	g.vertexMap[v.Identifier()] = nil
+	delete(g.vertexMap, v.Identifier())
 }
 
 func (g *Graph) RemoveEdge(e *Edge) {
@@ -78,7 +75,7 @@ func (g *Graph) RemoveEdge(e *Edge) {
 	}
 
 	e.removeSelf()
-	g.edgeMap[e.Identifier()] = nil
+	delete(g.edgeMap, e.Identifier())
 }
 
 func (g *Graph) GetEdge(id string) *Edge {
@@ -101,18 +98,18 @@ func (g *Graph) ConnectVertices(v1, v2 *Vertex) (edge *Edge) {
 }
 
 func (g *Graph) VertexExists(v *Vertex) bool {
-	if g.vertexMap[v.Identifier()] == nil {
-		return false
-	} else {
+	if _, ok := g.vertexMap[v.Identifier()]; ok {
 		return true
+	} else {
+		return false
 	}
 }
 
 func (g *Graph) EdgeExists(edge *Edge) bool {
-	if g.edgeMap[edge.Identifier()] == nil {
-		return false
-	} else {
+	if _, ok := g.edgeMap[edge.Identifier()]; ok {
 		return true
+	} else {
+		return false
 	}
 }
 
