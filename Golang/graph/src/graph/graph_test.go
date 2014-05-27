@@ -243,7 +243,7 @@ func TestFindConnectedComponentsDifferentComponents(t *testing.T) {
 	v1 := vertices[49]
 	v2 := vertices[51]
 
-	if disjoint.Find(result[v1.Identifier()]) != disjoint.Find(result[v2.Identifier()]) {
+	if disjoint.Find(result[v1.Identifier()]) == disjoint.Find(result[v2.Identifier()]) {
 		t.Errorf("Two vertices were unexpectedly in the same connected component")
 	}
 }
