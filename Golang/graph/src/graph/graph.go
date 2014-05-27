@@ -1,6 +1,9 @@
 package graph
 
-import "graph/disjoint"
+import (
+	"fmt"
+	"graph/disjoint"
+)
 
 type Graph struct {
 	vertexMap map[int64]*Vertex
@@ -29,18 +32,14 @@ func (g *Graph) AddVertex() *Vertex {
 }
 
 func (g *Graph) GetVertex(id int64) *Vertex {
-	vertex, present := g.vertexMap[id]
-	if present {
-		return vertex
-	}
-	return nil
+	vertex := g.vertexMap[id]
+	return vertex
 }
 
 func (g *Graph) RemoveVertex(v *Vertex) {
 	if !g.VertexExists(v) {
 		return
 	}
-
 	iteration_channel := v.EdgeIter()
 
 	//	for !closed(iteration_channel) {
@@ -49,20 +48,23 @@ func (g *Graph) RemoveVertex(v *Vertex) {
 	//		e.removeSelf()
 	//		g.edgeMap[e.Identifier()] = e, false
 	//	}
+outer:
 	for {
 		select {
 		case e, ok := <-iteration_channel:
 			if ok {
 				//read data.
+				fmt.Println("processing data: %d", e.id)
 				e.removeSelf()
 				g.edgeMap[e.Identifier()] = nil
 			} else {
 				//channel close.
-				break
+				fmt.Println("channel closed")
+				break outer
 			}
 		default:
 			//no value ready, moving on.
-
+			fmt.Println("No value!")
 			break
 		}
 	}
@@ -160,6 +162,7 @@ func dfs(visited map[int64]bool, iter <-chan *Edge, f func(*Vertex)) {
 	//			dfs(visited, v2.EdgeIter(), f)
 	//		}
 	//	}
+outer:
 	for {
 		select {
 		case e, ok := <-iter:
@@ -181,7 +184,7 @@ func dfs(visited map[int64]bool, iter <-chan *Edge, f func(*Vertex)) {
 				}
 
 			} else {
-				break
+				break outer
 			}
 		default:
 			break

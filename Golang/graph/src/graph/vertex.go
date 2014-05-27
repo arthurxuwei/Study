@@ -1,6 +1,9 @@
 package graph
 
-import "math/rand"
+import (
+	"fmt"
+	"math/rand"
+)
 
 type Vertex struct {
 	edgeMap map[string]*Edge
@@ -17,6 +20,7 @@ func newVertex() *Vertex {
 
 func (v *Vertex) edgeiterate(c chan<- *Edge) {
 	for _, val := range v.edgeMap {
+		fmt.Print("edge val")
 		c <- val
 	}
 	close(c)
