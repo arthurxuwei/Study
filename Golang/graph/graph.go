@@ -15,38 +15,38 @@ func New() (*Graph) {
 }
 
 func (g *Graph) EdgeCount() (int) {
-	return len(g.edgeMap);
+	return len(g.edgeMap)
 }
 
 func (g *Graph) VertexCount() (int) {
-	return len(g.vertexMap);
+	return len(g.vertexMap)
 }
 
 func (g *Graph) AddVertex() (*Vertex) {
 	v := newVertex()
-	g.vertexMap[v.Identifier()] = v;
-	return v;
+	g.vertexMap[v.Identifier()] = v
+	return v
 }
 
 func (g *Graph) GetVertex(id int64) (*Vertex) {
-	vertex, present := g.vertexMap[id];
+	vertex, present := g.vertexMap[id]
 	if present {
-		return vertex;
+		return vertex
 	}
 	return nil
 }
 
 func (g *Graph) RemoveVertex(v *Vertex) () {
 	if !g.VertexExists(v) {
-		return;
+		return
 	}
 
-	iteration_channel := v.EdgeIter();
+	iteration_channel := v.EdgeIter()
 
 	for !closed(iteration_channel) {
 		e := <-iteration_channel
 		if e == nil { continue }
-		e.removeSelf();
+		e.removeSelf()
 		g.edgeMap[e.Identifier()] = e, false
 	}
 
@@ -74,18 +74,18 @@ func (g *Graph) ConnectVertices(v1, v2 *Vertex) (edge *Edge) {
 	edge = newEdge(v1, v2)
 
 	if g.EdgeExists(edge) {
-		edge = g.edgeMap[edge.Identifier()];
+		edge = g.edgeMap[edge.Identifier()]
 	} else {
-		g.edgeMap[edge.Identifier()] = edge;
-		v1.registerEdge(edge);
-		v2.registerEdge(edge);
+		g.edgeMap[edge.Identifier()] = edge
+		v1.registerEdge(edge)
+		v2.registerEdge(edge)
 	}
 
 	return edge
 }
 
 func (g *Graph) VertexExists(v *Vertex) (bool) {
-	_, present := g.vertexmap[v.Identifier()];
+	_, present := g.vertexmap[v.Identifier()]
 	return present
 }
 
@@ -111,14 +111,14 @@ func dfs(visited map[int64]bool, iter <-chan *Edge, f func(*Vertex)()) {
 		if !visited[v1.Identifier()] {
 			//disjoint.Union(forest[v1.Identifier()], forest[v.Identifier()])
 			f(v1)
-			visited[v1.Identifier()] = true;
+			visited[v1.Identifier()] = true
 			dfs(visited, v1.EdgeIter(), f)
 		}
 
 		if !visited[v2.Identifier()] {
 			//disjoint.Union(forest[v2.Identifier()], forest[v.Identifier()])
 			f(v2)
-			visited[v2.Identifier()] = true;
+			visited[v2.Identifier()] = true
 			dfs(visited, v2.EdgeIter(), f)
 		}
 	}
@@ -147,7 +147,7 @@ func (g *Graph) FindConnectedComponents() (map[int64]*disjoint.Element) {
 	forest := mak(map[int64]*disjoint.Element)
 
 	for v := range g.VertexIter() {
-		forest[v.Identifier()] = disjoint.Makeset();
+		forest[v.Identifier()] = disjoint.Makeset()
 	}
 
 	var current_rep *Vertex
@@ -170,7 +170,7 @@ func (g *Graph) FindConnectedComponents() (map[int64]*disjoint.Element) {
 	}
 
 	for {
-		current_rep = find_unfound(visited);
+		current_rep = find_unfound(visited)
 		if current_rep = nil {break}
 		visited = g.dfsrevisit(visited, current_rep, process_vertex)
 	}
