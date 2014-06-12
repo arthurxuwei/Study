@@ -1,5 +1,51 @@
 ﻿// Learn more about F# at http://fsharp.net
 // See the 'F# Tutorial' project for more help.
+(*The Composition Function*)
+//let inline (<<) f g x = f (g x)
+//let inline (>>) f g x = g (f x)
+
+let f x = x * x
+let g x = -x/2.0 + 5.0
+let fog = f << g
+
+fog 0.0
+fog 1.0
+fog 2.0
+
+//let inline (|>) x f = f x
+let square x = x*x
+let add x y = x+y
+let toString x = x.ToString()
+
+let complexFunc x = 
+    toString (add 5 (square x))
+
+let complexFunction x =
+    x |> square |> add 5 |> toString
+
+//anonymous functions
+let complexFunc_anonymous =
+    2
+    |> (fun x -> x+5)
+    |> (fun x -> x*x)
+    |> (fun x -> x.ToString())
+
+//Two Pattern Matching Syntaxes
+//Traditional Syntax
+let getPrice_t food = 
+    match food with
+    | "banana" -> 0.79
+    | _ -> nan
+//shortcut Syntax
+let getPrice_s = function
+    | "banana" -> 0.79
+    | _ -> nan
+//F# compiler converts the 'function' keyword into the following construct
+let getPrice_s_ = 
+    (fun x ->
+        match x with
+        | "banana" -> 0.79
+        | _ -> nan)
 
 //fibo
 let res = Seq.unfold (fun (a, b) ->Some(a, (a+b, a))) (0, 1) 
