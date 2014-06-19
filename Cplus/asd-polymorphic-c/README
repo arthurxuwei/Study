@@ -1,0 +1,9 @@
+Structured C code example, demonstrating polymorphic objects in C.
+
+Build
+ * 'make' to build the executable, named 'geo-project'
+ * 'make clean' to delete all the object files and rebuild (no dependency detection !)
+ * 'make cleaner' to clean-up the project completly
+
+Things to try
+ * in 'Main.c', comment/uncomment line 16 or 17, and see what happens.
