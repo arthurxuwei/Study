@@ -26,6 +26,14 @@ for i in itertools.chain('ABC', 'DEFG'):
 for i in itertools.compress('ABCDEF', [1,0,1,0,1,1]):
 	print i
 
+# dropwhile(lambda x: x<5, [1,4,6,4,1]) --> 6 4 1
+def should_drop(x):
+    print 'Testing:', x
+    return (x<1)
+
+for i in itertools.dropwhile(should_drop, [ -1, 0, 1, 2, 3, 4, 1, -2 ]):
+    print 'Yielding:', i
+
 itertools.product(range(2), repeat=3)
 
 itertools.permutations(range(3))
