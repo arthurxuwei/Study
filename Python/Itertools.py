@@ -33,6 +33,11 @@ def should_drop(x):
 
 for i in itertools.dropwhile(should_drop, [ -1, 0, 1, 2, 3, 4, 1, -2 ]):
     print 'Yielding:', i
+	
+# [k for k, g in groupby('AAAABBBCCDAABBB')] --> A B C D A B
+# [list(g) for k, g in groupby('AAAABBBCCD')] --> AAAA BBB CC D
+for i, k in itertools.groupby(a, len):
+    print i, list(k)
 
 itertools.product(range(2), repeat=3)
 
