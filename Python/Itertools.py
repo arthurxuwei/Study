@@ -39,6 +39,31 @@ for i in itertools.dropwhile(should_drop, [ -1, 0, 1, 2, 3, 4, 1, -2 ]):
 for i, k in itertools.groupby(a, len):
     print i, list(k)
 
+# ifilter(lambda x: x%2, range(10)) --> 1 3 5 7 9
+def check_item(x):
+    print 'Testing:', x
+    return (x<1)
+
+for i in ifilter(check_item, [ -1, 0, 1, 2, 3, 4, 1, -2 ]):
+    print 'Yielding:', i
+# ifilterfalse(lambda x: x%2, range(10)) --> 0 2 4 6 8
+
+# islice('ABCDEFG', 2) --> A B
+# islice('ABCDEFG', 2, 4) --> C D
+# islice('ABCDEFG', 2, None) --> C D E F G
+# islice('ABCDEFG', 0, None, 2) --> A C E G	
+print 'Stop at 5:'
+for i in islice(count(), 5):
+    print i
+
+print 'Start at 5, Stop at 10:'
+for i in islice(count(), 5, 10):
+    print i
+
+print 'By tens to 100:'
+for i in islice(count(), 0, 100, 10):
+    print i
+	
 itertools.product(range(2), repeat=3)
 
 itertools.permutations(range(3))
