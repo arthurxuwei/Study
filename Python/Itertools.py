@@ -63,8 +63,57 @@ for i in islice(count(), 5, 10):
 print 'By tens to 100:'
 for i in islice(count(), 0, 100, 10):
     print i
-	
-itertools.product(range(2), repeat=3)
 
+# imap(pow, (2,3,10), (5,2,3)) --> 32 9 1000
+for i in imap(lambda x:2*x, xrange(5)):
+    print i
+
+for i in imap(lambda x,y:(x, y, x*y), xrange(5), xrange(5,10)):
+    print '%d * %d = %d' % i
+	
+# starmap(pow, [(2,5), (3,2), (10,3)]) --> 32 9 1000
+values = [(0, 5), (1, 6), (2, 7), (3, 8), (4, 9)]
+for i in starmap(lambda x,y:(x, y, x*y), values):
+    print '%d * %d = %d' % i
+
+# like linux tee
+r = islice(count(), 5)
+i1, i2 = tee(r)
+
+for i in i1:
+    print 'i1:', i
+for i in i2:
+    print 'i2:', i
+	
+# takewhile(lambda x: x<5, [1,4,6,4,1]) --> 1 4
+def should_take(x):
+    print 'Testing:', x
+    return (x<2)
+
+for i in takewhile(should_take, [ -1, 0, 1, 2, 3, 4, 1, -2 ]):
+    print 'Yielding:', i
+	
+# izip('ABCD', 'xy') --> Ax By
+for i in izip([1, 2, 3], ['a', 'b', 'c']):
+    print i
+
+# izip_longest('ABCD', 'xy', fillvalue='-') --> Ax By C- D-
+
+#part three
+# product('ABCD', 'xy') --> Ax Ay Bx By Cx Cy Dx Dy
+# product(range(2), repeat=3) --> 000 001 010 011 100 101 110 111
+a = (1, 2, 3)
+b = ('A', 'B', 'C')
+c = itertools.product(a,b)
+for elem in c:
+    print elem
+
+# permutations('ABCD', 2) --> AB AC AD BA BC BD CA CB CD DA DB DC
+# permutations(range(3)) --> 012 021 102 120 201 210
 itertools.permutations(range(3))
 
+# combinations('ABCD', 2) --> AB AC AD BC BD CD
+# combinations(range(4), 3) --> 012 013 023 123
+# combinations_with_replacement('ABC', 2) --> AA AB AC BB BC CC
+
+#part four : extention
