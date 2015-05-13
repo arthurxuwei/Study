@@ -1,3 +1,4 @@
+package readerwriter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +11,7 @@ public class ReaderFirst {
     public static final int READ_THREAD_SIZE = 4;
     public static final int BUFFER_LENGTH = 100;
 
-    public List<Integer> g_productor = new ArrayList<Integer>();
+    public List<Integer> g_productor = new ArrayList<>();
     public CountDownLatch mReaderLatch = new CountDownLatch(READ_THREAD_SIZE);
 
     public static Semaphore mWriteSema = new Semaphore(READ_THREAD_SIZE);
@@ -18,7 +19,6 @@ public class ReaderFirst {
     public CountDownLatch mLatchDown = new CountDownLatch(1 + READ_THREAD_SIZE);
     public CountDownLatch mLatchStart = new CountDownLatch(1 + READ_THREAD_SIZE);
 
-    @Override
     public void startDemo() {
         try {
             initReadNone();

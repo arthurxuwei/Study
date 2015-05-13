@@ -1,6 +1,4 @@
-import com.sun.corba.se.impl.presentation.rmi.DynamicMethodMarshallerImpl;
-
-import java.util.concurrent.Semaphore;
+package readerwriter;
 
 /**
  * Created by arthur.xw on 2015/5/12.
@@ -18,6 +16,7 @@ public class ReadThread implements Runnable {
     @Override
     public void run() {
         mExample.mLatchStart.countDown();
+        System.out.println(name + "thread start");
         while (flag) {
             mExample.waitWriteEnd();
 
@@ -33,8 +32,10 @@ public class ReadThread implements Runnable {
             if (mExample.bStopFlag) {
                 flag = false;
             }
+            mExample.singalReadEnd();
         }
-        mExample.singalReadEnd();
+        System.out.println(name + "thread end");
+        mExample.mLatchDown.countDown();
     }
 }
 

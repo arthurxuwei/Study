@@ -1,19 +1,22 @@
+package readerwriter;
+
 /**
  * Created by arthur.xw on 2015/5/12.
  */
-public class WriteThread implements Runnable{
+public class WriterThread implements Runnable{
 
     ReaderFirst mExample = null;
     String name = null;
     int iFlag = 0;
 
-    public WriteThread(ReaderFirst re, String name) {
+    public WriterThread(ReaderFirst re, String name) {
         mExample = re;
         this.name = name;
     }
     @Override
     public void run() {
         mExample.mLatchStart.countDown();
+        System.out.println(name + " thread start");
         int index = 0;
         while (index < ReaderFirst.BUFFER_LENGTH) {
             mExample.waitReaderEnd();
