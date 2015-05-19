@@ -21,7 +21,9 @@ st = new StreamTokenizer(testfile.newReader())
 st.slashSlashComments(true)
 while (st.nextToken() != StreamTokenizer.TT_EOF) {
     if (st.ttype == StreamTokenizer.TT_WORD) words++
-    else (st.ttype == StreamTokenizer.TT_NUMBER) numbers++
+    else if (st.ttype == StreamTokenizer.TT_NUMBER) numbers++
+    else if (st.ttype == StreamTokenizer.TT_EOL) println("EOL")
+    else println st.ttype//all branch need to be declared, ttype value is ASCII when token just has one char
 }
 println "Found $words word and $numbers numbers."
 
