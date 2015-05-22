@@ -1,5 +1,6 @@
 import groovy.time.TimeCategory
 import groovy.time.TimeDuration
+import groovyx.gpars.GParsExecutorsPool
 
 /**
  * Created by arthur.xw on 2015/5/15.
@@ -32,19 +33,25 @@ while (st.nextToken() != StreamTokenizer.TT_EOF) {
 }
 println "Found $words word and $numbers numbers and $separator separator."
 
-def start = new Date()
 seen = [:]
-[testfile, testfile1, testfile2].each {
-    file -> processWordsInFile(file) {
-        w = it.toLowerCase()
-        if (seen.containsKey(w)) seen[w] += 1
-        else seen[w] = 1
+
+def start = new Date()
+GParsExecutorsPool.withPool {
+    def processWords = {
+        query ->  processWordsInFile(query) {
+            w = it.toLowerCase()
+            if (seen.containsKey(w)) seen[w] += 1
+            else seen[w] = 1
+        }
+    }
+
+    [testfile, testfile1, testfile2].each {
+        file -> processWords.callAsync(file)
     }
 }
 def end = new Date()
 TimeDuration duration = TimeCategory.minus(end, start)
 println 'time spent: ' + duration
-
 seen.entrySet().sort {
     a,b -> b.value <=> a.value
 }.each {
