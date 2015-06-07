@@ -1,0 +1,20 @@
+Correct me if I'm wrong, but you seem to be wanting to run regular shell commands on the remote server where the script is local.
+
+#!/bin/sh
+trap "rm -f /tmp/sendonssh.$$.*" 0 1 2 3 15
+# commands to run on the remote server
+cat <<'EOF' >> /tmp/sendonssh.$$.sh
+mkdir -p /tmp/foobar.$$
+mv $HOME/xyzzy /tmp/foobar.$$
+chmod 640 $HOME/xyzzy
+EOF
+# call for each argument
+for userhost in "$@"; do
+    errorout=`ssh -aTxo BatchMode=yes $userhost /bin/sh -s < /tmp/sendonssh.$$.sh 2>&1`
+    rc=$?
+    if [ $rc -ne 0 ]; then
+        echo "Error: $userhost: $errorout"
+        exit $rc
+    fi
+done
+I do this with some 'remote execution' apps in my test environment using Python instead of the shell: ssh $userhost python < $pythonscriptfilename.
