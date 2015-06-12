@@ -80,7 +80,7 @@ class Proposer (essential.Proposer):
 		'''
 		if increment_proposal_number:
 			self.leader = False
-			slef.promises_rcvd = set()
+			self.promises_rcvd = set()
 			self.proposal_id = (self.next_proposal_number, self.proposer_uid)
 			
 			self.next_proposal_number += 1
@@ -97,7 +97,7 @@ class Proposer (essential.Proposer):
 		'''
 		if from_uid != self.proposer_uid:
 			if proposal_id >= (self.next_proposal_number, self.proposer_uid):
-				self.next_proposal_number = promised_id.number + 1
+				self.next_proposal_number = proposal_id.number + 1
 				
 	def recv_prepare_nack(self, from_uid, proposal_id, promised_id):
 		'''
@@ -208,13 +208,13 @@ class Acceptor (essential.Acceptor):
 		else:
 			if self.active:
 				self.messenger.send_prepare_nack(from_uid,
-									proposal_id, self.promised_id
+									proposal_id, self.promised_id)
 									
 	def recv_accept_request(self, from_uid, proposal_id, value):
 		'''
 		Called when an Accept! message is received from the network
 		'''
-		if proposal_id == slef.accepted_id \
+		if proposal_id == self.accepted_id \
 			and value == self.accepted_value:
 			# Duplicate accepted proposal. No change in state is 
 			# necessary so the response may be sent immediately
@@ -227,7 +227,7 @@ class Acceptor (essential.Acceptor):
 				self.accepted_value = value
 				self.accepted_id = proposal_id
 				if self.active:
-					self.pen = from_uid
+					self.pending_accepted = from_uid
 					
 		else:
 			if self.active:
@@ -241,7 +241,7 @@ class Acceptor (essential.Acceptor):
 		the promised_id accepted_id, and accepted_value variables have
 		been persisted to stable media.
 		'''
-		if self.activ:
+		if self.active:
 			if self.pending_promise:
 				self.messenger.send_promise(self.pending_promise,
 									self.promised_id,self.accepted_id,
@@ -318,7 +318,7 @@ class Node(Proposer, Acceptor, Learner):
 	def __init__(self, messenger, node_uid, quorum_size):
 		self.messenger = messenger
 		self.node_uid = node_uid
-		sefl.quorum_size = quorum_size
+		self.quorum_size = quorum_size
 		
 	@property
 	def proposer_uid(self):
