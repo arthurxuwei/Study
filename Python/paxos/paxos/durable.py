@@ -94,7 +94,7 @@ def read(fd):
 	Returns: (serial_number, unpickled_object) or raises a FileCorrupted
 	exception
 	'''
-	os.lseek(fdm 0, os.SEEK_SET)
+	os.lseek(fd, 0, os.SEEK_SET)
 	
 	md5hash = os.read(fd, 16)
 	data1	= os.read(fd, 8)
@@ -133,9 +133,9 @@ def write(fd, serial_number, pyobject):
 	m = hashlib.md5()
 	m.update(data_serial)
 	m.update(data_length)
-	m.updata(data_pickle)
+	m.update(data_pickle)
 
-	os.wirte(fd, ''.join([m.digest(), data_serial, data_length, data_pickle]))
+	os.write(fd, ''.join([m.digest(), data_serial, data_length, data_pickle]))
 	
 	_fsync(fd)
 	
@@ -169,7 +169,7 @@ class DurableObjectHandler(object):
 			
 		self.recover()
 		
-	def recvoer(self):
+	def recover(self):
 		sa, sb, obja, objb = (None, None, None, None)
 		
 		try:
@@ -190,7 +190,7 @@ class DurableObjectHandler(object):
 		if s is None:
 			if os.stat(self.fn_a).st_size == 0 and os.stat(self.fn_b).st_size == 0:
 				self.serial = 1
-				self.fd_next = sllf.fd_a
+				self.fd_next = self.fd_a
 				self.recovered = None
 			else:
 				raise UnrecoverableFailure('Unrecoverable Durability failure')

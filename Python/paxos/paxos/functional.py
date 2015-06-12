@@ -159,12 +159,12 @@ class HeartbeatNode(practical.Node):
 	def recv_promise(self, acceptor_uid, proposal_id,
 			prev_proposal_id, prev_proposal_value):
 		pre_leader = self.leader
-		super(HeartbeatNode, self).recv_promise(acceptor_uid
+		super(HeartbeatNode, self).recv_promise(acceptor_uid,
 										proposal_id, prev_proposal_id,
 										prev_proposal_value)
 										
 		if not pre_leader and self.leader:
-			old_leader_uid = self.leader_uid:
+			old_leader_uid = self.leader_uid
 			
 			self.leader_uid = self.node_uid
 			self.leader_proposal_id = self.proposal_id
@@ -179,7 +179,7 @@ class HeartbeatNode(practical.Node):
 		if self._acquiring:
 			self.prepare()
 			
-	def recv_accept_nack(self, from_uid, proposal_idm promised_id):
+	def recv_accept_nack(self, from_uid, proposal_id, promised_id):
 		if proposal_id == self.proposal_id:
 			self._nacks.add(from_uid)
 			

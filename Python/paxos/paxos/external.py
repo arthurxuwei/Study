@@ -5,7 +5,7 @@ detection.
 from paxos import practical
 from paxos.practical import ProposalID
 
-class ExternalMessenger(practical.Messenger)
+class ExternalMessenger(practical.Messenger):
 	
 	def send_leadership_proclamation(self):
 		'''
@@ -23,7 +23,7 @@ class ExternalMessenger(practical.Messenger)
 		may be None.
 		'''
 		
-class ExternalNode(practiacl.Node):
+class ExternalNode(practical.Node):
 	'''
 	This implementation is completely passive. An external entity must monitor
 	peer nodes for failure and call prepare() when the node should attempt to
@@ -71,7 +71,7 @@ class ExternalNode(practiacl.Node):
 									prev_proposal_id, prev_proposal_value)
 									
 		if not pre_leader and self.leader:
-			old_leader_uid = slef.leader_uid
+			old_leader_uid = self.leader_uid
 			
 			self.leader_uid = self.node_uid
 			self.leader_proposal_id = self.proposal_id
