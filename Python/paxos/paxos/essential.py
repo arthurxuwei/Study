@@ -22,7 +22,7 @@ import collections
 ProposalID = collections.namedtuple('ProposalID', ['number', 'uid'])
 
 class Messenger(object):
-	def send_prepare(self, proposal_id)
+	def send_prepare(self, proposal_id):
 		'''
 		Broadcasts a Prepare message to all Acceptors
 		'''
@@ -104,7 +104,7 @@ class Proposer (object):
 				
 				
 class Acceptor (object):
-	message			= None
+	messenger		= None
 	promised_id		= None
 	accepted_id		= None
 	accepted_value	= None
@@ -119,7 +119,7 @@ class Acceptor (object):
 									self.accepted_value)
 		elif proposal_id > self.promised_id:
 			self.promised_id = proposal_id
-			self.messager.send_promise(from_uid, proposal_id, self.accepted_id,
+			self.messenger.send_promise(from_uid, proposal_id, self.accepted_id,
 									self.accepted_value)
 									
 	def recv_accept_request(self, from_uid, proposal_id, value):
@@ -143,14 +143,14 @@ class Learner(object):
 			
 	@property
 	def complete(self):
-		return self.final_proposal_idis not None
+		return self.final_proposal_id is not None
 		
-	def recv_accepted(self, from_uid, promised_id, accepted_value):
+	def recv_accepted(self, from_uid, proposal_id, accepted_value):
 		'''
 		Called when an Accepted message is received from an acceptor
 		'''
 		if self.final_value is not None:
-			resturn # already done
+			return # already done
 			
 		if self.proposals is None:
 			self.proposals = dict()
@@ -163,7 +163,7 @@ class Learner(object):
 		
 		self.acceptors[ from_uid ] = proposal_id
 		
-		if last_pn in not None:
+		if last_pn is not None:
 			oldp = self.proposals[ last_pn ]
 			oldp[1] -= 1
 			if oldp[1] == 0:
@@ -183,7 +183,7 @@ class Learner(object):
 			self.proposals = None
 			self.acceptors = None
 			
-			self.messager.on_resolution( proposal_id, accepted_value)
+			self.messenger.on_resolution( proposal_id, accepted_value)
 	
 	
 	
