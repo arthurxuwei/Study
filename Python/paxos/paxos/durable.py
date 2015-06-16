@@ -193,6 +193,7 @@ class DurableObjectHandler(object):
 				self.fd_next = self.fd_a
 				self.recovered = None
 			else:
+				self.close()
 				raise UnrecoverableFailure('Unrecoverable Durability failure')
 				
 		else:

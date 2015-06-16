@@ -66,8 +66,8 @@ class DurableReadTester(unittest.TestCase):
 class DurableObjectHandlerTester(unittest.TestCase):
 	def setUp(self):
 		tmpfs_dir = '/dev/shm' if os.path.exists('/dev/shm') else None
-		self.tdir = tempfile.mkdtemp(dir=tmpfs_dir)
 		self.o	  = DObj()
+		self.tdir = tempfile.mkdtemp(dir=tmpfs_dir)
 		self.doh  = durable.DurableObjectHandler(self.tdir, 'id1')
 		
 		self.dohs = [self.doh,]
@@ -144,21 +144,20 @@ class DurableObjectHandlerTester(unittest.TestCase):
 		self.assertTrue(isinstance(d.recovered, DObj))
 		self.assertEquals(d.recovered.state, 'second')
 		
-	# def test_unrecoverable_corruption(self):
-		# self.test_two_save()
+	def test_unrecoverable_corruption(self):
+		self.test_two_save()
+		with open(self.doh.fn_a, 'wb') as f:
+			f.write('\0')
+			f.flush()
+			
+		with open(self.doh.fn_b, 'wb') as f:
+			f.write('\0')
+			f.flush()
+			
+		def diehorribly():
+			self.newdoh('id1')
 		
-		# with open(self.doh.fn_a, 'wb') as f:
-			# f.write('\0')
-			# f.flush()
-			
-		# with open(self.doh.fn_b, 'wb') as f:
-			# f.write('\0')
-			# f.flush()
-			
-		# def diehorribly():
-			# self.newdoh('id1')
-			
-		# self.assertRaises(durable.UnrecoverableFailure, diehorribly)
+		self.assertRaises(durable.UnrecoverableFailure, diehorribly)
 		
 if __name__ == '__main__':
 	unittest.main(exit=False)
