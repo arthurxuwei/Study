@@ -1,0 +1,10 @@
+<aspectj>
+    <aspects>
+        <aspect name="Proxy.SimpleLoggerAspect"/>
+    </aspects>
+
+    <weaver options="-verbose -debug -showWeaveInfo">
+        <include within="Proxy.*" />
+        <!--<include within="Proxy.SimpleLoggerAspect" />-->
+    </weaver>
+</aspectj>
