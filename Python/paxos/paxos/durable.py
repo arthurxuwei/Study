@@ -1,4 +1,4 @@
-'''
+''' 
 This module implements a very simple mechanism for crash-proof
 storage of an object's internal state.
 
