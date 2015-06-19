@@ -5,7 +5,7 @@ package IoC;
  */
 public class TestMain {
     public static void main(String[] args) {
-        String msg = "Hi Pankaj";
+        String msg = "Hi~";
         String email = "abc@abc.com";
         String phone = "4008008800";
         MessageServiceInjector injector = null;
