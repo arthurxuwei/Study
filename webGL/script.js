@@ -5,57 +5,107 @@ onload = function(){
 
     var gl = c.getContext('webgl') || c.getContext('experimental-webgl');
     
-    gl.clearColor(0.0, 0.0, 0.0, 1.0);
-    gl.clearDepth(1.0);  
-    gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+    // gl.clearColor(0.0, 0.0, 0.0, 1.0);
+    // gl.clearDepth(1.0);  
+    // gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
     var v_shader = create_shader('vs');  
     var f_shader = create_shader('fs'); 
     
     var prg = create_program(v_shader, f_shader);  
-    // attributeLocation的获取  
-    var attLocation = gl.getAttribLocation(prg, 'position'); 
-    // attribute的元素数量(这次只使用 xyz ，所以是3)  
-    var attStride = 3;  
-    // 模型（顶点）数据  
+    // attributeLocation的获取
+    var attLocation = new Array(2);  
+    attLocation[0] = gl.getAttribLocation(prg, 'position');
+    attLocation[1] = gl.getAttribLocation(prg, 'color');
+    
+    // attribute的元素数量
+    var attStride = new Array(2); 
+    attStride[0] = 3;
+    attStride[1] = 4;
+    // 模型数据  
     var vertex_position = [  
          0.0, 1.0, 0.0,  
          1.0, 0.0, 0.0,  
-        -1.0, 0.0, 0.0  
+        -1.0, 0.0, 0.0,  
+         0.0,-1.0, 0.0
+    ];
+    var vertex_color = [  
+        1.0, 0.0, 0.0, 1.0,  
+        0.0, 1.0, 0.0, 1.0,  
+        0.0, 0.0, 1.0, 1.0,
+        0.0, 0.0, 1.0, 1.0
     ];  
     
      // 生成VBO  
-    var vbo = create_vbo(vertex_position);  
+    var position_vbo = create_vbo(vertex_position);
+    var color_vbo = create_vbo(vertex_color); 
     // 绑定VBO  
-    gl.bindBuffer(gl.ARRAY_BUFFER, vbo);  
-    // 设定attribute属性有効  
-    gl.enableVertexAttribArray(attLocation);  
+    gl.bindBuffer(gl.ARRAY_BUFFER, position_vbo);  
+    // 设定attribute属性有效
+    gl.enableVertexAttribArray(attLocation[0]);  
     // 添加attribute属性  
-    gl.vertexAttribPointer(attLocation, attStride, gl.FLOAT, false, 0, 0);  
+    gl.vertexAttribPointer(attLocation[0], attStride[0], gl.FLOAT, false, 0, 0);  
+        // 绑定VBO  
+    gl.bindBuffer(gl.ARRAY_BUFFER, color_vbo);  
+    // 设定attribute属性有效
+    gl.enableVertexAttribArray(attLocation[1]);  
+    // 添加attribute属性  
+    gl.vertexAttribPointer(attLocation[1], attStride[1], gl.FLOAT, false, 0, 0);  
     
+    // uniformLocation的获取  
+    var uniLocation = gl.getUniformLocation(prg, 'mvpMatrix'); 
     // matIV对象生成  
     var m = new matIV();  
     // 各种矩阵的生成和初始化  
     var mMatrix = m.identity(m.create());  
     var vMatrix = m.identity(m.create());  
     var pMatrix = m.identity(m.create());  
+    var tmpMatrix = m.identity(m.create());
     var mvpMatrix = m.identity(m.create());  
     // 视图变换坐标矩阵  
-    m.lookAt([0.0, 1.0, 3.0], [0, 0, 0], [0, 1, 0], vMatrix);  
+    m.lookAt([0.0, 0.0, 3.0], [0, 0, 0], [0, 1, 0], vMatrix);  
     // 投影坐标变换矩阵  
     m.perspective(90, c.width / c.height, 0.1, 100, pMatrix);  
-    // 各矩阵想成，得到最终的坐标变换矩阵  
-    m.multiply(pMatrix, vMatrix, mvpMatrix);  
-    m.multiply(mvpMatrix, mMatrix, mvpMatrix);  
+    // 各矩阵相乘，得到最终的坐标变换矩阵  
+    m.multiply(pMatrix, vMatrix, tmpMatrix);  
     
-    // uniformLocation的获取  
-    var uniLocation = gl.getUniformLocation(prg, 'mvpMatrix');  
-    // 向uniformLocation中传入坐标变换矩阵  
-    gl.uniformMatrix4fv(uniLocation, false, mvpMatrix);  
-    // 绘制模型  
-    gl.drawArrays(gl.TRIANGLES, 0, 3);  
-    // context的刷新  
-    gl.flush();  
+    var count = 0;
+    (function(){
+        gl.clearColor(0.0, 0.0, 0.0, 1.0);
+        gl.clearDepth(1.0);
+        gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+        
+        count++;
+        
+        var rad = (count % 360) * Math.PI / 180;
+        var x = Math.cos(rad);
+        var y = Math.sin(rad);
+        m.identity(mMatrix);
+        m.translate(mMatrix, [x, y, 0.0], mMatrix);
+        m.multiply(tmpMatrix, mMatrix, mvpMatrix);
+        // 向uniformLocation中传入坐标变换矩阵  
+        gl.uniformMatrix4fv(uniLocation, false, mvpMatrix);
+        gl.drawArrays(gl.TRIANGLES, 0, 3);
+        
+        m.identity(mMatrix);
+        m.translate(mMatrix, [0.0, 0.0, 0.0], mMatrix);
+        m.rotate(mMatrix, rad, [0,1,0], mMatrix);
+        m.multiply(tmpMatrix, mMatrix, mvpMatrix);
+        gl.uniformMatrix4fv(uniLocation, false, mvpMatrix);
+        gl.drawArrays(gl.TRIANGLES, 0, 3);
+        
+        var s = Math.sin(rad) + 1.0;
+        m.identity(mMatrix);
+        m.translate(mMatrix, [0.0, 0.0, 0.0], mMatrix);
+        m.scale(mMatrix, [s, s, 0.0], mMatrix);
+        m.multiply(tmpMatrix, mMatrix, mvpMatrix);
+        gl.uniformMatrix4fv(uniLocation, false, mvpMatrix);
+        gl.drawArrays(gl.TRIANGLES, 0, 3);
+        
+        gl.flush();
+        setTimeout(arguments.callee, 1000/30);
+    })();
+
     
     
     function create_shader(id){
@@ -124,5 +174,18 @@ onload = function(){
         // 返回生成的VBO
         return vbo;
     }
+    
+    // 绑定VBO相关的函数  
+    function set_attribute(vbo, attL, attS){  
+    // 处理从参数中得到的数组  
+        for(var i in vbo){  
+            // 绑定缓存  
+            gl.bindBuffer(gl.ARRAY_BUFFER, vbo[i]);  
+            // 将attributeLocation设置为有效  
+            gl.enableVertexAttribArray(attL[i]);  
+            //通知并添加attributeLocation  
+            gl.vertexAttribPointer(attL[i], attS[i], gl.FLOAT, false, 0, 0);  
+        }  
+    } 
 };
 
