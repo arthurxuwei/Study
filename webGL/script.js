@@ -22,35 +22,31 @@ onload = function(){
     var attStride = new Array(2); 
     attStride[0] = 3;
     attStride[1] = 4;
-    // 模型数据  
-    var vertex_position = [  
-         0.0, 1.0, 0.0,  
-         1.0, 0.0, 0.0,  
-        -1.0, 0.0, 0.0,  
-         0.0,-1.0, 0.0
+ 
+    var box_position = [  
+         0.0,  1.0,  0.0,  
+         1.0,  0.0,  0.0,  
+        -1.0,  0.0,  0.0,  
+         0.0, -1.0,  0.0  
     ];
-    var vertex_color = [  
+    var box_color = [  
         1.0, 0.0, 0.0, 1.0,  
         0.0, 1.0, 0.0, 1.0,  
-        0.0, 0.0, 1.0, 1.0,
-        0.0, 0.0, 1.0, 1.0
+        0.0, 0.0, 1.0, 1.0,  
+        1.0, 1.0, 1.0, 1.0  
+    ];
+    // 保存顶点的索引的数组  
+    var index = [  
+        0, 1, 2,  
+        1, 2, 3  
     ];  
-    
-     // 生成VBO  
-    var position_vbo = create_vbo(vertex_position);
-    var color_vbo = create_vbo(vertex_color); 
-    // 绑定VBO  
-    gl.bindBuffer(gl.ARRAY_BUFFER, position_vbo);  
-    // 设定attribute属性有效
-    gl.enableVertexAttribArray(attLocation[0]);  
-    // 添加attribute属性  
-    gl.vertexAttribPointer(attLocation[0], attStride[0], gl.FLOAT, false, 0, 0);  
-        // 绑定VBO  
-    gl.bindBuffer(gl.ARRAY_BUFFER, color_vbo);  
-    // 设定attribute属性有效
-    gl.enableVertexAttribArray(attLocation[1]);  
-    // 添加attribute属性  
-    gl.vertexAttribPointer(attLocation[1], attStride[1], gl.FLOAT, false, 0, 0);  
+    var box_pos_vbo = create_vbo(box_position);  
+    var box_col_vbo = create_vbo(box_color);  
+       
+    set_attribute([box_pos_vbo, box_col_vbo], attLocation, attStride); 
+    var ibo = create_ibo(index);  
+    // IBO进行绑定并添加  
+    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ibo); 
     
     // uniformLocation的获取  
     var uniLocation = gl.getUniformLocation(prg, 'mvpMatrix'); 
@@ -71,6 +67,10 @@ onload = function(){
     
     var count = 0;
     (function(){
+        gl.enable(gl.CULL_FACE);
+        gl.frontFace(gl.CW);
+        gl.enable(gl.DEPTH_TEST);
+        
         gl.clearColor(0.0, 0.0, 0.0, 1.0);
         gl.clearDepth(1.0);
         gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
@@ -79,28 +79,21 @@ onload = function(){
         
         var rad = (count % 360) * Math.PI / 180;
         var x = Math.cos(rad);
-        var y = Math.sin(rad);
+        var z = Math.sin(rad);
+
         m.identity(mMatrix);
-        m.translate(mMatrix, [x, y, 0.0], mMatrix);
+        m.translate(mMatrix, [x, 0.0, z], mMatrix);
+        m.rotate(mMatrix, rad, [1, 0, 0], mMatrix);
         m.multiply(tmpMatrix, mMatrix, mvpMatrix);
-        // 向uniformLocation中传入坐标变换矩阵  
         gl.uniformMatrix4fv(uniLocation, false, mvpMatrix);
-        gl.drawArrays(gl.TRIANGLES, 0, 3);
+        gl.drawElements(gl.TRIANGLES, index.length, gl.UNSIGNED_SHORT, 0);
         
         m.identity(mMatrix);
-        m.translate(mMatrix, [0.0, 0.0, 0.0], mMatrix);
-        m.rotate(mMatrix, rad, [0,1,0], mMatrix);
+        m.translate(mMatrix, [-x, 0.0, -z], mMatrix);
+        m.rotate(mMatrix, rad, [0, 1, 0], mMatrix);
         m.multiply(tmpMatrix, mMatrix, mvpMatrix);
         gl.uniformMatrix4fv(uniLocation, false, mvpMatrix);
-        gl.drawArrays(gl.TRIANGLES, 0, 3);
-        
-        var s = Math.sin(rad) + 1.0;
-        m.identity(mMatrix);
-        m.translate(mMatrix, [0.0, 0.0, 0.0], mMatrix);
-        m.scale(mMatrix, [s, s, 0.0], mMatrix);
-        m.multiply(tmpMatrix, mMatrix, mvpMatrix);
-        gl.uniformMatrix4fv(uniLocation, false, mvpMatrix);
-        gl.drawArrays(gl.TRIANGLES, 0, 3);
+        gl.drawElements(gl.TRIANGLES, index.length, gl.UNSIGNED_SHORT, 0);
         
         gl.flush();
         setTimeout(arguments.callee, 1000/30);
@@ -173,6 +166,20 @@ onload = function(){
         gl.bindBuffer(gl.ARRAY_BUFFER, null);
         // 返回生成的VBO
         return vbo;
+    }
+    
+    // IBO的生成函数
+    function create_ibo(data){
+        // 生成缓存对象
+        var ibo = gl.createBuffer();
+        // 绑定缓存
+        gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ibo);
+        // 向缓存中写入数据
+        gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Int16Array(data), gl.STATIC_DRAW);
+        // 将缓存的绑定无效化
+        gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, null);
+        // 返回生成的IBO
+        return ibo;
     }
     
     // 绑定VBO相关的函数  
