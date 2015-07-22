@@ -5,17 +5,16 @@ from utils.util import *
 import shutil
 import nqpconf
 import os
+import json
 from subprocess import Popen
+
+class ScanException(Exception):
+    pass
 
 def controller(func):
     def replacement(req):
-        try:
-            func(req)
-        except Exception as e:
-            logger.error('exception: %s' % e)
-            req.send_error(500, 'Server Internal Error')
+        func(req)
     return replacement
-    
     
 class Router(object):
     def __init__(self):
@@ -29,9 +28,8 @@ class Router(object):
         logger.info('request path: %s' % path)
         if path in self.routers:
             return self.routers[path](req)
-        return req.send_error(404, 'Path not found')
+        raise ScanException("Path not found")
 
-        
 def copyfile(source, outputfile):
     """¿½±´ÎÄ¼þ
     """
@@ -45,31 +43,44 @@ def get_file_header(req):
         # transmitted *less* than the content-length!
         f = open(nqpconf.ZONE, 'rb')
     except IOError:
-        req.send_error(404, "File not found")
+        raise ScanException("file not found")
         return
     req.send_response(200)
-    req.send_header("Content-type", 'text/plain')
+    req.send_header("Content-type", 'application/json')
     fs = os.fstat(f.fileno())
-    req.send_header("Content-Length", str(fs[6]))
+    #req.send_header("Content-Length", str(fs[6]))
     req.send_header("Last-Modified", req.date_time_string(fs.st_mtime))
-    req.end_headers()
+    
     return f
     
 @controller
 def get_file(req):
     file = get_file_header(req)
     if file:
-        copyfile(file, req.wfile)
+        #copyfile(file, req.wfile)
+        ret = {'success':True, 
+           'error': '',
+           'result':{'zone':nqpconf.ZONE, 'ips':''}
+           }
+            
+        ret['result']['ips'] = file.read().replace('\n', ';')
+        req.wfile.write(json.dumps(ret))
         file.close()
         
 @controller
 def do_task(req):
-    p = Popen(['./scanner.py'])
-    if p.pid:
-        req.send_response(200)
-        req.end_headers()
-    else:
-        req.send_error(500, 'Execute command error')
+    try:
+        p = Popen(['./scanner.py'])
+        if p.pid:
+            ret = {'success':True, 
+               'error': '',
+               'result':p.pid
+               }
+            req.send_response(200)
+            req.end_headers()
+            req.wfile.write(json.dumps(ret))
+    except Exception as e:
+        raise ScanException("Execute command error")
 
 
 class TestHTTPHandler(BaseHTTPRequestHandler):
@@ -78,10 +89,20 @@ class TestHTTPHandler(BaseHTTPRequestHandler):
         BaseHTTPRequestHandler.__init__(self, *args)
         
     def do_GET(self):
+        ret = {'success':True, 
+           'error': '',
+           'result': ''
+           }
         try:
             router(self)
         except Exception as e:
-            self.send_error(500)
+            import traceback
+            print traceback.format_exc()
+            self.send_response(200)
+            self.end_headers()
+            ret['success'] = False
+            ret['error'] = '%s'%e
+            self.wfile.write(json.dumps(ret))
 
 class ScanHTTPServer:
     def __init__(self, (ip, port), router):
