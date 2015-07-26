@@ -117,3 +117,4 @@ itertools.permutations(range(3))
 # combinations_with_replacement('ABC', 2) --> AA AB AC BB BC CC
 
 #part four : extention
+ 
