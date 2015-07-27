@@ -13,7 +13,7 @@ class ScanException(Exception):
 
 def controller(func):
     def replacement(req):
-        func(req)
+        return func(req)
     return replacement
     
 class Router(object):
@@ -45,12 +45,9 @@ def get_file_header(req):
     except IOError:
         raise ScanException("file not found")
         return
-    req.send_response(200)
-    req.send_header("Content-type", 'application/json')
     fs = os.fstat(f.fileno())
     #req.send_header("Content-Length", str(fs[6]))
     req.send_header("Last-Modified", req.date_time_string(fs.st_mtime))
-    
     return f
     
 @controller
@@ -58,27 +55,16 @@ def get_file(req):
     file = get_file_header(req)
     if file:
         #copyfile(file, req.wfile)
-        ret = {'success':True, 
-           'error': '',
-           'result':{'zone':nqpconf.ZONE, 'ips':''}
-           }
-            
-        ret['result']['ips'] = file.read().replace('\n', ';')
-        req.wfile.write(json.dumps(ret))
+        result = file.read().replace('\n', ';')
         file.close()
+        return result
         
 @controller
 def do_task(req):
     try:
         p = Popen(['./scanner.py'])
         if p.pid:
-            ret = {'success':True, 
-               'error': '',
-               'result':p.pid
-               }
-            req.send_response(200)
-            req.end_headers()
-            req.wfile.write(json.dumps(ret))
+            return p.pid
     except Exception as e:
         raise ScanException("Execute command error")
 
@@ -94,14 +80,18 @@ class TestHTTPHandler(BaseHTTPRequestHandler):
            'result': ''
            }
         try:
-            router(self)
+            res = router(self)
+            if res:
+                ret['result'] = res
         except Exception as e:
             import traceback
             print traceback.format_exc()
-            self.send_response(200)
-            self.end_headers()
             ret['success'] = False
             ret['error'] = '%s'%e
+        finally:
+            req.send_header("Content-type", 'application/json')
+            self.send_response(200)
+            self.end_headers()
             self.wfile.write(json.dumps(ret))
 
 class ScanHTTPServer:
