@@ -30,11 +30,6 @@ class Router(object):
             return self.routers[path](req)
         raise ScanException("Path not found")
 
-def copyfile(source, outputfile):
-    """¿½±´ÎÄ¼þ
-    """
-    shutil.copyfileobj(source, outputfile)
-        
 def get_file_header(req):
     f = None
     try:
@@ -54,7 +49,6 @@ def get_file_header(req):
 def get_file(req):
     file = get_file_header(req)
     if file:
-        #copyfile(file, req.wfile)
         result = file.read().replace('\n', ';')
         file.close()
         return result
