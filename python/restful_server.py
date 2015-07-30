@@ -62,7 +62,6 @@ def do_task(req):
     except Exception as e:
         raise ScanException("Execute command error")
 
-
 class TestHTTPHandler(BaseHTTPRequestHandler):
     def __init__(self, router, *args):
         self.router = router
