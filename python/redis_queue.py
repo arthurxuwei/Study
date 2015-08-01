@@ -26,7 +26,7 @@ class RedisQueue(object):
             item = self.__db.blpop(self.key, timeout=timeout)
         else:
             item = self.__db.lpop(self.key)
-        if item:
+        if isinstance(item, tuple):
             item = item[1]
         return item
 
