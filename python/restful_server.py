@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-    
 from BaseHTTPServer import HTTPServer, BaseHTTPRequestHandler
-from log import logger
-from utils.util import *
 import shutil
-import nqpconf
 import os
 import json
 from subprocess import Popen
@@ -24,8 +21,8 @@ class Router(object):
         self.routers[path] = controller
         
     def __call__(self, req):
-        path = req.path.strip('/')
-        logger.info('request path: %s' % path)
+        path = req.path.split('?')[0].strip('/')
+        print 'request path: %s' % path
         if path in self.routers:
             return self.routers[path](req)
         raise ScanException("Path not found")
@@ -61,6 +58,10 @@ def do_task(req):
             return p.pid
     except Exception as e:
         raise ScanException("Execute command error")
+        
+@controller
+def echo(req):
+    return {'proIp':'10.1.46.48'}
 
 class TestHTTPHandler(BaseHTTPRequestHandler):
     def __init__(self, router, *args):
@@ -68,22 +69,22 @@ class TestHTTPHandler(BaseHTTPRequestHandler):
         BaseHTTPRequestHandler.__init__(self, *args)
         
     def do_GET(self):
-        ret = {'success':True, 
+        ret = {'errCode':True, 
            'error': '',
-           'result': ''
+           'data': ''
            }
         try:
             res = router(self)
             if res:
-                ret['result'] = res
+                ret['data'] = res
         except Exception as e:
             import traceback
             print traceback.format_exc()
             ret['success'] = False
             ret['error'] = '%s'%e
         finally:
-            req.send_header("Content-type", 'application/json')
-            self.send_response(200)
+            # self.send_header("Content-type", 'application/json')
+            #self.send_response(200)
             self.end_headers()
             self.wfile.write(json.dumps(ret))
 
@@ -99,8 +100,9 @@ class main:
         self.server = ScanHTTPServer((ip, port), router)
     
 if __name__ == '__main__':
-    logger.info('server start')
+    print 'server start'
     router = Router()
     router.add_route('getfile', controller=get_file)
     router.add_route('dotask', controller=do_task)
-    m = main(('', 19999), router)
+    router.add_route('disp', controller=echo)
+    m = main(('10.1.46.48', 19999), router)
