@@ -83,8 +83,10 @@ class TestHTTPHandler(BaseHTTPRequestHandler):
             ret['success'] = False
             ret['error'] = '%s'%e
         finally:
-            # self.send_header("Content-type", 'application/json')
-            #self.send_response(200)
+            self.send_response(200, 'OK')
+            self.send_header("Content-type", 'application/json')
+            self.send_header('Content-lenget', len(json.dumps(ret)))
+            self.end_headers()
             self.end_headers()
             self.wfile.write(json.dumps(ret))
 
