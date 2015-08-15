@@ -1,0 +1,14 @@
+systemd:
+按需启动服务
+尽可能并行启动
+采用Cgroup跟踪和管理进程的生命周期
+统一管理服务日志
+
+unit: Systemd管理服务的基本单元
+target: Systemd用于指定服务启动组的方式(相当于‘运行级别’)
+
+
+fleet:
+集群的指挥所
+
+etcd:
