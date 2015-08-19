@@ -7,3 +7,7 @@ awk -F, '{print $2}' result/result.txt | sort | uniq -c | awk '{print $2,$1}'
 awk 'BEGIN {FS=OFS=","} NR==FNR{f[$1] = $0} $1 in f{print f[$1], $0}' test.log dim.txt
 //join two file by column
 join <(sort test.log) <(awk -F, '{print $1,$2,$3}' dim.txt)
+
+
+//line join
+awk '{print $2}' site | grep -oP '[A-Z0-9\/]{3,8}' | tr "\\n" ","
