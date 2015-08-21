@@ -1,5 +1,5 @@
 //insert a text at the beginning of a file
 sed -i '1s/^/<add text> /' <file>
 
-
-awk
+//extract lines between two patterns & edit by vim
+awk '/pattern1/ {p=1}; p; /pattern2/ {p=0}' file | vim -
