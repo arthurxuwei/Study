@@ -1,0 +1,31 @@
+典型应用场景
+Typical Application Scenario
+1.数据发布与订阅（配置中心）
+data publish-and-subscribe (configure center)
+    发布与订阅模型，即所谓的配置中心，发布者将数据发布到ZK节点上，供订阅者动态
+    获取数据，实现配置信息的集中式管理和动态更新。
+2.负载均衡
+load balance
+    软负载均衡
+3.命名服务
+naming service
+    在分布式系统中，通过使用命名服务，客户端应用能够根据指定名字来获取资源或服
+    务的地址，提供者等信息。被命名的实体通常可以是集群中的机器，提供的服务地址，
+    远程对象等。
+4.分布式通知/协调
+distribution notification/coordinate
+    实现对数据变更的实时处理。1）心跳检查机制，分割检测者和被检测者，降低系统耦
+    合。2）系统调度模式，推送系统，将控制台相应的任务进行推送。3）工作汇报模式：
+    子任务在zk注册，并定时将自己的进度进行汇报。
+5.集群管理与Master选举
+cluster management and master vote
+    集群监控
+    Master选举：在分布式环境中，相同的业务应用分布在不同的机器上，有些业务逻辑
+    （耗时的CPU计算，网络I/O)往往只需要让某一台机器处理，其余机器共享这个结果，
+    从而提升性能。
+6.分布式锁
+distribution lock
+    zk保证了数据的强一致性。锁服务可以分为两类：保持独占和控制时序。
+7.分布式队列
+distribution queue
+    1、FIFO 2、等队列成员聚齐之后才统一按序执行
