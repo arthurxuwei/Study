@@ -29,3 +29,6 @@ distribution lock
 7.分布式队列
 distribution queue
     1、FIFO 2、等队列成员聚齐之后才统一按序执行
+
+
+source:http://jm-blog.aliapp.com/?tag=zookeeper
