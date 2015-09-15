@@ -3,3 +3,8 @@ sed -i '1s/^/<add text> /' <file>
 
 //extract lines between two patterns & edit by vim
 awk '/pattern1/ {p=1}; p; /pattern2/ {p=0}' file | vim -
+
+
+//replace text in file
+//replace False with True in line 2
+sed -i 2s/False/True/ <file>
