@@ -1,1 +1,3 @@
 # web framework
+
+with transaction.commit_on_success():
