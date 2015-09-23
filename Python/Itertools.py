@@ -71,7 +71,7 @@ for i in imap(lambda x:2*x, xrange(5)):
 for i in imap(lambda x,y:(x, y, x*y), xrange(5), xrange(5,10)):
     print '%d * %d = %d' % i
 	
-# starmap(pow, [(2,5), (3,2), (10,3)]) --> 32 9 1000
+# starmap(pow, [(2,5), (3,2), (10,3)]) --> 32 9 1000 
 values = [(0, 5), (1, 6), (2, 7), (3, 8), (4, 9)]
 for i in starmap(lambda x,y:(x, y, x*y), values):
     print '%d * %d = %d' % i
