@@ -1,0 +1,10 @@
+1. install nodejs
+2. install npm
+3. install bower
+4. install express
+5. express -e xxx
+6. cd public/javascripts/
+7. bower install xx
+8. cd xxx
+9. npm install
+10. npm start
