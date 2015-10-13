@@ -1,3 +1,6 @@
+#dir size
+du -h --max-depth=1 {dir}
+
 #check file
 if [ ! -f /tmp/foo.txt ]; then
     echo "File not found!"
