@@ -49,3 +49,4 @@ awk -F'[][]' '{print $2}' ip_practices.txt
 grep -Eo '([0-9]{1,3}\.){3}[0-9]{1,3}' ip_practices.txt
 
 
+ 
