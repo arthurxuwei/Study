@@ -1,0 +1,10 @@
+Linux Top 
+top - {current time} up {running time}, {user num}, load average{task queue length}: {1 min} {5 min} {15 min}
+Tasks: {process} total , {running} running, sleeping, stopped, zombie
+Cpu(s): {usser CPU time}%us, {system CPU time}%sy, {nice CPU time}%ni, {idle}%id, {iowait}%wa, {hardware irp}%hi, {software irp}%si, {steal time}%st
+Mem: {phy mem} total, {phy mem} used, {} free, {system buffer} buffers
+Swap: {swap} total, {} used, {} free, {cached swap: used, not rewrite} cached
+
+(f/F: show/hidde column)
+a    b     c      d    e     f      g    h   i   j  k     l     m      n     o     p    q     r     s     t    u     v     w                 x          y      z
+PID  PPID  RUSER  UID  USER  GROUP  TTY  PR  NI  P  %CPU  TIME  TIME+  %MEM  VIRT  SWAP  RES  CODE  DATA  SHR  nFLT  nDRT  S(D, R, S, T, Z)  COMMANDER  WCHAN  Flags
