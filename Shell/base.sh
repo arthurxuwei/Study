@@ -35,9 +35,6 @@ lsscsi
 #all
 sosreport
 
-//example 2
-grep -Eo '([0-9]{1,3}\.){3}[0-9]{1,3}' ip_practices.txt
-
 //
 chmod chown chgrp --reference
 
@@ -47,8 +44,31 @@ stat {file}
 //file type
 file {file}
 
-
 //
 diff cmp comm md5sum
 
- 
+//
+alias   ''{cmd} \{cmd}
+unalias
+
+//xargs
+file * | grep ASCII | cut -d":" -f1 | xargs -t -n2 ls -ltr  
+ls | xargs -t -i mv {} {}.bak
+
+//rename
+rename
+
+
+find . -name "sqlplus*" -ok {} \;
+
+//word replace 
+m4 
+
+//freeze process
+skill -STOP -CONT 
+//priority of process
+snice
+
+
+
+
