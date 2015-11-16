@@ -18,9 +18,12 @@ if [ -d "$LINK_OR_DIR" ]; then
   fi
 fi
 
-
+#process
+ipcs ipcrm
 #cpu info
-lscpu
+lscpu vmstat mpstat iostat sar
+#mem
+free vmstat mpstat iostat sar
 #hardware info
 lshw
 hwinfo
