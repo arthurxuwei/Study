@@ -19,7 +19,7 @@ if [ -d "$LINK_OR_DIR" ]; then
 fi
 
 #process
-ipcs ipcrm
+ipcs ipcrm (shared memory,IPC message queue,signal)
 #cpu info
 lscpu vmstat mpstat iostat sar
 #mem
