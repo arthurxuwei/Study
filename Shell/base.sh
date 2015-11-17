@@ -24,6 +24,7 @@ ipcs ipcrm
 lscpu vmstat mpstat iostat sar
 #mem
 free vmstat mpstat iostat sar
+free -m | grep Mem | awk '{print ($3 / $2)*100}'
 #hardware info
 lshw
 hwinfo
