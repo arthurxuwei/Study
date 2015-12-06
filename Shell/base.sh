@@ -38,6 +38,8 @@ lsblk
 lsscsi
 #all
 sosreport
+#network
+netstat ss
 
 //
 chmod chown chgrp --reference
@@ -72,6 +74,7 @@ m4
 skill -STOP -CONT 
 //priority of process
 snice
+
 
 
 
