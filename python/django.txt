@@ -1,3 +1,8 @@
 # web framework
 
 with transaction.commit_on_success():
+
+
+get_or_create
+
+select_for_update
