@@ -61,6 +61,10 @@ unalias
 file * | grep ASCII | cut -d":" -f1 | xargs -t -n2 ls -ltr  
 ls | xargs -t -i mv {} {}.bak
 
+//find in files
+find . -maxdepth 2 -name '*.conf' -exec grep -nr HOSTNAME=test {} \;
+
+
 //rename
 rename
 
