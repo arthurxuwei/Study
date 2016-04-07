@@ -1,0 +1,1 @@
+1.代码写数据库的时候，要考虑数据库数据范围，避免data overflow 或者 data truncate
