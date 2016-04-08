@@ -1,0 +1,8 @@
+1.代码写数据库的时候，要考虑数据库数据范围，避免data overflow 或者 data truncate
+
+2.java中new <Object>() 要比 new HashMap<>()慢，对，是这样的，具体原因可以看源代码。但是并不是说
+要用hashmap代替object作为传参。因为当用map.put时，效率就会大降。
+而且，object结构要比hashmap清楚
+
+3.注意transaction的propagation的区别，正常情况下可能看不出有什么区别。但是当发生异常是，区别就看出来了
+
