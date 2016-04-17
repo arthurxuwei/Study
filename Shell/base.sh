@@ -1,3 +1,13 @@
+#core config
+/etc/sysctl.conf
+
+#special dir-
+/dev/shm (dir on memory)
+
+#system init dir
+/etc/init.d
+/etc/rc.local
+
 #dir size
 du -h --max-depth=1 {dir}
 
@@ -76,7 +86,17 @@ m4
 
 //freeze process
 skill -STOP -CONT 
+//lxc-freeze
+lxc-freeze
 //priority of process
 snice
+
+//dmesg
+
+//cpu count 
+getconf _NPROCESSORS_ONLN
+cat /proc/cpuinfo | grep processor | wc -l
+
+
 
 
