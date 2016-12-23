@@ -1,0 +1,37 @@
+kubernetes 源码分析
+scheduler模块
+
+scheduler作为一个客户端，从apiserver中读取到需要分配的pod，和拥有的node，
+然后进行过滤和算分，最后把这个匹配信息通过apiserver写入到etcd里面，
+供下一步的kubelet去拉起pod使用。
+输入？
+输出？
+
+kubernetes\plugin\cmd\kube-scheduler\scheduler.go
+main:
+	创建NewSchedulerServer（稍后再分析）
+	命令行解析
+	日志初始化
+	app.Run(NewSchedulerServer)
+	
+kubernetes\plugin\cmd\kube-scheduler\app\server.go
+Run:
+	createClient
+		BuildConfigFromFlags
+		NewForConfig
+			NewTokenBucketRateLimiter
+			{各种方法创建不同版本client，这里主要是restclient}
+	createConfig(scheduler config)
+	scheduler.New（创建调度器）
+		go scheduleOne
+			NextPod
+			Algorithm.Schedule(pod, NodeLister) (这里调度失败，除了错误信息处理，还会刷新Pod信息)
+				计算
+	go startHttp
+	scheduler.run(这里有个判断是否进行leader选举，如果选举，则有leader进行run)
+选举代码（leaderelection），后续单独分析
+到这里，scheduler就跑起来了，这时对外暴露的就是http接口了
+
+LeaderElection
+
+Metrics（这里用到一个开源监控系统Prometheus）
