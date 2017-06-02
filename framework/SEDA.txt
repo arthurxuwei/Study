@@ -1,1 +1,2 @@
+Staged Event-Driven Architecture
 https://www.eecs.harvard.edu/~mdw/proj/seda/
