@@ -1,10 +1,14 @@
 # artificial intelligence
 
-## fundamental
+## machine learning
 
-## neural network
+### fundamental
+* linear regression
+* logistic regression
 
-## deep learning
+### neural network
+
+### deep learning
 
 ## reinforce learning
 
