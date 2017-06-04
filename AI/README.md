@@ -7,6 +7,9 @@
 * logistic regression
 
 ### neural network
+* full-connected
+* cnn
+* rnn
 
 ### deep learning
 
