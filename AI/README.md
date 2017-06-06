@@ -5,9 +5,10 @@
 ### fundamental
 * linear regression
 * logistic regression
+* supervised/unsupervised learning
 
 ### neural network
-* full-connected
+* full-connected: forward, backword
 * cnn
 * rnn
 
