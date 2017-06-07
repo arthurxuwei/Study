@@ -1,2 +1,2 @@
 # Study
-My small program for study 
+personal knowledge graph
