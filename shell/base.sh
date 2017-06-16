@@ -97,6 +97,8 @@ snice
 getconf _NPROCESSORS_ONLN
 cat /proc/cpuinfo | grep processor | wc -l
 
+df fdisk parted 
+
 
 
 
