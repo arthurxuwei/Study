@@ -1,3 +1,11 @@
+#Exit immediately if a simple command exits with a non-zero status
+set -e
+
+#if set, the return value of a pipeline is the value of the last command
+#to exit with a non-zero status, or zero if all commands in the pipeline
+#exit successfully
+set -o pipeline
+
 #core config
 /etc/sysctl.conf
 
@@ -16,7 +24,7 @@ if [ ! -f /tmp/foo.txt ]; then
     echo "File not found!"
 fi
 #check dir
-if [ -d "$LINK_OR_DIR" ]; then 
+if [ -d "$LINK_OR_DIR" ]; then
   if [ -L "$LINK_OR_DIR" ]; then
     # It is a symlink!
     # Symbolic link specific commands go here.
@@ -68,7 +76,7 @@ alias   ''{cmd} \{cmd}
 unalias
 
 //xargs
-file * | grep ASCII | cut -d":" -f1 | xargs -t -n2 ls -ltr  
+file * | grep ASCII | cut -d":" -f1 | xargs -t -n2 ls -ltr
 ls | xargs -t -i mv {} {}.bak
 
 //find in files
@@ -81,11 +89,11 @@ rename
 
 find . -name "sqlplus*" -ok {} \;
 
-//word replace 
-m4 
+//word replace
+m4
 
 //freeze process
-skill -STOP -CONT 
+skill -STOP -CONT
 //lxc-freeze
 lxc-freeze
 //priority of process
@@ -93,12 +101,8 @@ snice
 
 //dmesg
 
-//cpu count 
+//cpu count
 getconf _NPROCESSORS_ONLN
 cat /proc/cpuinfo | grep processor | wc -l
 
-df fdisk parted 
-
-
-
-
+df fdisk parted
