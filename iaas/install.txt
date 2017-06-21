@@ -1,0 +1,12 @@
+dog out
+init env(hardware, network)
+switch net to work
+download
+format disk
+install img
+chroot(bind mem direction)
+/etc/resolv.conf
+install pkg
+sys config
+custom script
+boot loader
