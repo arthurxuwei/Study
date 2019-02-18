@@ -1,3 +1,5 @@
+package AbstractFactory;
+
 abstract class CPU {}
 
 class EmberCPU extends CPU {}
@@ -46,36 +48,36 @@ abstract class AbstractFactory {
 }
 
 class EmberToolkit extends AbstractFactory {
-    @java.lang.Override
+    @Override
     public CPU createCPU() {
         return new EmberCPU();
     }
 
-    @java.lang.Override
+    @Override
     public MMU createMMU() {
         return new EmberMMU();
     }
 }
 
 class EnginolaToolkit extends AbstractFactory {
-    @java.lang.Override
+    @Override
     public CPU createCPU() {
         return new EnginolaCPU();
     }
 
-    @java.lang.Override
+    @Override
     public MMU createMMU() {
         return new EnginolaMMU();
     }
 }
 
 class DefaultToolkit extends AbstractFactory {
-    @java.lang.Override
+    @Override
     public CPU createCPU() {
         return new DefaultCPU();
     }
 
-    @java.lang.Override
+    @Override
     public MMU createMMU() {
         return new DefaultMMU();
     }

@@ -1,4 +1,4 @@
-package Proxy;
+package Proxy.CglibProxy;
 
 /**
  * Created by arthur.xw on 2015/6/16.

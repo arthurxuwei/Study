@@ -1,3 +1,5 @@
+package FactoryMethod;
+
 class DecodedImage {
     private String image;
 
@@ -5,8 +7,8 @@ class DecodedImage {
         this.image = image;
     }
 
-    @java.lang.Override
-    public java.lang.String toString() {
+    @Override
+    public String toString() {
         return "DecodedImage{" +
                 "image='" + image + '\'' +
                 '}';
@@ -24,7 +26,7 @@ class GifReader implements ImageReader {
         this.image = image;
     }
 
-    @java.lang.Override
+    @Override
     public DecodedImage getDecodeImage() {
         return new DecodedImage(image + " gif decoded");
     }
@@ -37,7 +39,7 @@ class JpegReader implements ImageReader {
         this.image = image;
     }
 
-    @java.lang.Override
+    @Override
     public DecodedImage getDecodeImage() {
         return new DecodedImage(image + " jpeg decoded");
     }

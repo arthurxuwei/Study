@@ -1,3 +1,5 @@
+package Builder;
+
 class Pizza {
     private String dough;
     private String sauce;
@@ -15,8 +17,8 @@ class Pizza {
         this.topping = topping;
     }
 
-    @java.lang.Override
-    public java.lang.String toString() {
+    @Override
+    public String toString() {
         return "Pizza{" +
                 "dough='" + dough + '\'' +
                 ", sauce='" + sauce + '\'' +
@@ -45,34 +47,34 @@ abstract class PizzaBuilder {
 }
 
 class HawaiianPizzaBuilder extends PizzaBuilder {
-    @java.lang.Override
+    @Override
     public void buildDough() {
         pizza.setDough("cross");
     }
 
-    @java.lang.Override
+    @Override
     public void buildSauce() {
         pizza.setSauce("mild");
     }
 
-    @java.lang.Override
+    @Override
     public void buildTopping() {
         pizza.setTopping("ham+pineapple");
     }
 }
 
 class SpicyPizzaBuilder extends PizzaBuilder {
-    @java.lang.Override
+    @Override
     public void buildDough() {
         pizza.setDough("pan baked");
     }
 
-    @java.lang.Override
+    @Override
     public void buildSauce() {
         pizza.setSauce("hot");
     }
 
-    @java.lang.Override
+    @Override
     public void buildTopping() {
         pizza.setTopping("peperoni+salami");
     }

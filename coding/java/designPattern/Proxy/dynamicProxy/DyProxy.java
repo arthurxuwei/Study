@@ -1,4 +1,4 @@
-package Proxy;
+package Proxy.dynamicProxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;

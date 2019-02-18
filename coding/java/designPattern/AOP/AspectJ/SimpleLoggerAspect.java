@@ -1,4 +1,4 @@
-package Proxy;
+package AOP.AspectJ;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -15,7 +15,7 @@ public class SimpleLoggerAspect {
 
     }
 
-    @Around("Proxy.SimpleLoggerAspect.simpleTraceCall()")
+    @Around("AOP.AspectJ.SimpleLoggerAspect.simpleTraceCall()")
     public Object simpleTrace(ProceedingJoinPoint joinPoint) throws  Throwable {
         System.out.println("simpleTrace:before call"
             + joinPoint.getTarget().getClass().getName()
