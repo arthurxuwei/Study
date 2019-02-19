@@ -1,4 +1,4 @@
-package Builder;
+package builder;
 
 class Pizza {
     private String dough;

@@ -1,4 +1,4 @@
-package AbstractFactory;
+package abstractfactory;
 
 abstract class CPU {}
 

@@ -1,4 +1,4 @@
-package FactoryMethod;
+package factorymethod;
 
 class DecodedImage {
     private String image;
