@@ -14,11 +14,11 @@ interface Prototype {
 class PrototypeModule {
     private static List<Prototype> prototypes = new ArrayList<>();
 
-    public static void addPrototype(Prototype prototype) {
+    static void addPrototype(Prototype prototype) {
         prototypes.add(prototype);
     }
 
-    public static Prototype createPrototype(String name) {
+    static Prototype createPrototype(String name) {
         for (Prototype p : prototypes) {
             if (p.getName().equals(name)) {
                 return p.clone();
@@ -33,7 +33,7 @@ class PrototypeAlpha implements Prototype {
 
     @Override
     public Prototype clone() {
-        return new PrototypeAlpha();
+        return this;
     }
 
     @Override
@@ -52,7 +52,7 @@ class PrototypeBeta implements Prototype {
 
     @Override
     public Prototype clone() {
-        return new PrototypeBeta();
+        return this;
     }
 
     @Override
@@ -71,7 +71,7 @@ class ReleasePrototype implements Prototype {
 
     @Override
     public Prototype clone() {
-        return new ReleasePrototype();
+        return this;
     }
 
     @Override
@@ -86,7 +86,7 @@ class ReleasePrototype implements Prototype {
 }
 
 public class Demo {
-    public static void initializePrototype() {
+    private static void initializePrototype() {
         PrototypeModule.addPrototype(new PrototypeAlpha());
         PrototypeModule.addPrototype(new PrototypeBeta());
         PrototypeModule.addPrototype(new ReleasePrototype());
