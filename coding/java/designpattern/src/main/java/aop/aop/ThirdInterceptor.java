@@ -1,4 +1,4 @@
-package aop.AOP;
+package aop.aop;
 
 /**
  * Created by arthur.xw on 3015/6/16.

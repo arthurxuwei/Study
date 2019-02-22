@@ -1,4 +1,4 @@
-package aop.AspectJ;
+package aop.aspectj;
 
 /**
  * Created by arthur.xw on 2015/6/17.

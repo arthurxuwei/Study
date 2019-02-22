@@ -1,14 +1,14 @@
-package aop.AOP;
+package aop.aop;
 
 /**
  * Created by arthur.xw on 2015/6/16.
  */
-public class SecondInterceptor implements Interceptor {
+public class FirstInterceptor implements Interceptor {
 
     @Override
     public void intercept(ActionInvocation invocation) {
-        System.out.println(2);
+        System.out.println(1);
         invocation.invoke();
-        System.out.println(-2);
+        System.out.println(-1);
     }
 }
