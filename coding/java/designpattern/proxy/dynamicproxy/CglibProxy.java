@@ -1,4 +1,4 @@
-package Proxy.CglibProxy;
+package proxy.dynamicProxy;
 
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
@@ -20,7 +20,6 @@ public class CglibProxy implements MethodInterceptor {
         return enhancer.create();
     }
 
-    @Override
     public Object intercept(Object obj, Method method, Object[] args,
                               MethodProxy proxy) throws Throwable {
         System.out.println("begin process");

@@ -1,4 +1,4 @@
-package Proxy.StaticProxy;
+package proxy.StaticProxy;
 
 /**
  * Created by arthur.xw on 2015/6/16.

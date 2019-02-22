@@ -1,4 +1,4 @@
-package Proxy.dynamicProxy;
+package proxy.dynamicProxy;
 
 /**
  * Created by arthur.xw on 2015/6/16.
