@@ -175,7 +175,6 @@ class StackHanoi extends Stack {
 }
 
 class StackFIFO extends Stack {
-    private StackImpl stackImpl = new StackList();
 
     public StackFIFO() {
         super("array");
@@ -188,11 +187,11 @@ class StackFIFO extends Stack {
     @Override
     public int pop() {
         while (!isEmpty()) {
-            stackImpl.push(super.pop());
+            push(super.pop());
         }
-        int ret = stackImpl.pop();
-        while (!stackImpl.isEmpty()) {
-            push(stackImpl.pop());
+        int ret = super.pop();
+        while (!isEmpty()) {
+            push(super.pop());
         }
         return ret;
     }

@@ -15,7 +15,7 @@ type PalPayMent struct {
 }
 
 func (*PalPayMent) Send(sender, recipient string , money *Money) {
-	fmt.Printf("Send %f %s from %s to %s", money.Amount, money.Currency, sender, recipient)
+	fmt.Printf("Send %f %s from %s to %s\n", money.Amount, money.Currency, sender, recipient)
 }
 
 type Account struct {
@@ -48,7 +48,7 @@ func (g *Gateway) FindAccountByEmail(email string) *Account {
 }
 
 func (g *Gateway) ProcessTransaction(t *Transaction) {
-	fmt.Printf("Transfered %f %s from %s to %s at %v", t.Amount,
+	fmt.Printf("Transfered %f %s from %s to %s at %v\n", t.Amount,
 		t.FromAccount.Currency, t.FromAccount.Owner, t.ToAccount.Owner, t.Date)
 	t.FromAccount.Balance -= t.Amount
 }
