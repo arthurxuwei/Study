@@ -1,9 +1,13 @@
+package philosophers;
+
 import java.util.Random;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * Created by arthur.xw on 2015/5/13.
+ *
+ * @author arthur.xw
+ * @date 2015/5/13
  */
 public class Philosopher extends Thread {
     private boolean eating;

@@ -1,7 +1,10 @@
+package philosophers;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * Created by arthur.xw on 2015/5/13.
+ *
+ * @author arthur.xw
+ * @date 2015/5/13
  */
 public class DiningPhilosophers {
     public static void main(String[] args) throws InterruptedException {
