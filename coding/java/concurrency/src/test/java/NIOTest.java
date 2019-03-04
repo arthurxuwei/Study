@@ -1,10 +1,9 @@
-import com.sun.org.apache.bcel.internal.generic.Select;
+import org.junit.Test;
+import sun.java2d.loops.ProcessPath;
 
 import java.io.IOException;
-import java.io.InputStream;
+import java.lang.management.ManagementFactory;
 import java.net.InetSocketAddress;
-import java.net.ServerSocket;
-import java.net.Socket;
 import java.nio.ByteBuffer;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
@@ -14,7 +13,10 @@ import java.util.Iterator;
 import java.util.Set;
 
 public class NIOTest {
-    public static void main(String[] args) throws IOException {
+    @Test
+    public void test() throws IOException {
+        System.out.println(ManagementFactory.getRuntimeMXBean().getName());
+
         ServerSocketChannel ssc = ServerSocketChannel.open();
         ssc.socket().bind(new InetSocketAddress("127.0.0.1", 8887));
         ssc.configureBlocking(false);
@@ -24,6 +26,7 @@ public class NIOTest {
         ByteBuffer writeBuff = ByteBuffer.allocate(128);
         writeBuff.put("received".getBytes());
         writeBuff.flip();
+        System.out.println("start select");
         while (true) {
             selector.select();
             Set<SelectionKey> keys = selector.selectedKeys();
