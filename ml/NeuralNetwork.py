@@ -35,7 +35,7 @@ class NeuralNetwork:
             for l in range(len(self.weights)):
                 a.append(self.activation(np.dot(a[l], self.weights[l])))
 
-            error = y[i] - a[1]
+            error = y[i] - a[-1]
             deltas = [error * self.activation_deriv(a[-1])]
 
             for l in range(len(a) - 2, 0, -1):
