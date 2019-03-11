@@ -15,3 +15,9 @@ def logistic(x):
 
 def logistic_derivative(x):
     return logistic(x)*(1-logistic(x))
+
+def relu(x):
+    return np.maximum(z, 0.0)
+
+def relu(x):
+    return np.where(z <= 0, 0, 1)
