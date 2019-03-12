@@ -53,6 +53,7 @@ class NeuralNetwork:
         :param mX:
         :return: predict result
         """
+        
         mX = np.array(mX)
         temp = np.ones(mX.shape[0] + 1)
         temp[0:-1] = mX
