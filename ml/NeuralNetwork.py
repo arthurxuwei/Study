@@ -47,19 +47,20 @@ class NeuralNetwork:
                 layer = np.atleast_2d(a[i])
                 delta = np.atleast_2d(deltas[i])
                 self.weights[i] += learning_rate * layer.T.dot(delta)
+                
 
     def predict(self, mX):
         """
         :param mX:
         :return: predict result
         """
-        
-        mX = np.array(mX)
-        temp = np.ones(mX.shape[0] + 1)
-        temp[0:-1] = mX
-        a = temp
-        for l in range(0, len(self.weights)):
-            a = self.activation(np.dot(a, self.weights[l]))
-        return a
+        predictions = []
+        for i in range(mX.shape[0]):
+            temp = np.ones(mX[i].shape[0] + 1)
+            temp[0:-1] = mX[i]
+            for l in range(0, len(self.weights)):
+                temp = self.activation(np.dot(temp, self.weights[l]))
+            predictions.append(np.argmax(temp))
+        return np.array(predictions)
 
 

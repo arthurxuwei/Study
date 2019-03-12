@@ -19,9 +19,6 @@ def logistic_derivative(x):
 def relu(x):
     return np.maximum(z, 0.0)
 
-def relu(x):
-<<<<<<< HEAD
+def relu_derivative(x):
     return np.where(z <= 0, 0, 1)
-=======
-    return np.where(z <= 0, 0, 1)
->>>>>>> cfa736387e092630fa592e42074396eb4fc6a089
+
