@@ -13,12 +13,14 @@ def logistic(x):
     return 1/(1 + np.exp(-x))
 
 
-def logistic_derivative(x):
+def logistic_deriv(x):
     return logistic(x)*(1-logistic(x))
+
 
 def relu(x):
     return np.maximum(x, 0.0)
 
-def relu_derivative(x):
+
+def relu_deriv(x):
     return np.where(x <= 0, 0, 1)
 

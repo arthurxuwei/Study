@@ -1,6 +1,13 @@
 import numpy as np
 
 
+class Layer:
+    def __init__(self, count, activation, deriv):
+        self.count = count
+        self.activation = activation
+        self.deriv = deriv
+
+
 class NeuralNetwork:
     def __init__(self, layers, activation, activation_deriv):
         """
@@ -32,12 +39,15 @@ class NeuralNetwork:
             i = np.random.randint(mX.shape[0])
             a = [mX[i]]
 
+            # 正向更新
             for l in range(len(self.weights)):
                 a.append(self.activation(np.dot(a[l], self.weights[l])))
 
             error = y[i] - a[-1]
+            # 误差
             deltas = [error * self.activation_deriv(a[-1])]
 
+            # 反向更新
             for l in range(len(a) - 2, 0, -1):
                 deltas.append(deltas[-1].dot(self.weights[l].T) * self.activation_deriv(a[l]))
 
@@ -49,7 +59,6 @@ class NeuralNetwork:
                 reg = layer.T.dot(delta)
                 reg += 0.01 * self.weights[i]
                 self.weights[i] -= learning_rate * reg
-                
 
     def predict(self, mX):
         """
