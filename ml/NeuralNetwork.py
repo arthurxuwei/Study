@@ -1,6 +1,13 @@
 import numpy as np
 
 
+class Layer:
+    def __init__(self, count, activation, deriv):
+        self.count = count
+        self.activation = activation
+        self.deriv = deriv
+
+
 class NeuralNetwork:
     def __init__(self, layers, activation, activation_deriv):
         """
@@ -15,7 +22,7 @@ class NeuralNetwork:
             self.weights.append((2 * np.random.random((layers[i - 1] + 1, layers[i] + 1)) - 1) * 0.25)
             self.weights.append((2 * np.random.random((layers[i] + 1, layers[i + 1])) - 1) * 0.25)
 
-    def fit(self, mX, y, learning_rate=0.2, epochs=1000):
+    def fit(self, mX, y, learning_rate=0.01, epochs=10000):
         """
         :param mX: matrix of instance
         :param y: label
@@ -32,12 +39,15 @@ class NeuralNetwork:
             i = np.random.randint(mX.shape[0])
             a = [mX[i]]
 
+            # 正向更新
             for l in range(len(self.weights)):
                 a.append(self.activation(np.dot(a[l], self.weights[l])))
 
             error = y[i] - a[-1]
+            # 误差
             deltas = [error * self.activation_deriv(a[-1])]
 
+            # 反向更新
             for l in range(len(a) - 2, 0, -1):
                 deltas.append(deltas[-1].dot(self.weights[l].T) * self.activation_deriv(a[l]))
 
@@ -47,7 +57,8 @@ class NeuralNetwork:
                 layer = np.atleast_2d(a[i])
                 delta = np.atleast_2d(deltas[i])
                 self.weights[i] += learning_rate * layer.T.dot(delta)
-                
+
+            print(self.weights)
 
     def predict(self, mX):
         """
@@ -60,7 +71,7 @@ class NeuralNetwork:
             temp[0:-1] = mX[i]
             for l in range(0, len(self.weights)):
                 temp = self.activation(np.dot(temp, self.weights[l]))
-            predictions.append(np.argmax(temp))
+            predictions.append(temp)
         return np.array(predictions)
 
 
