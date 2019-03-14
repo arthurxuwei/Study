@@ -15,7 +15,7 @@ class NeuralNetwork:
             self.weights.append((2 * np.random.random((layers[i - 1] + 1, layers[i] + 1)) - 1) * 0.25)
             self.weights.append((2 * np.random.random((layers[i] + 1, layers[i + 1])) - 1) * 0.25)
 
-    def fit(self, mX, y, learning_rate=0.2, epochs=1000):
+    def fit(self, mX, y, learning_rate=0.0001, epochs=2000):
         """
         :param mX: matrix of instance
         :param y: label
@@ -46,7 +46,9 @@ class NeuralNetwork:
             for i in range(len(self.weights)):
                 layer = np.atleast_2d(a[i])
                 delta = np.atleast_2d(deltas[i])
-                self.weights[i] += learning_rate * layer.T.dot(delta)
+                reg = layer.T.dot(delta)
+                reg += 0.01 * self.weights[i]
+                self.weights[i] -= learning_rate * reg
                 
 
     def predict(self, mX):
@@ -60,7 +62,7 @@ class NeuralNetwork:
             temp[0:-1] = mX[i]
             for l in range(0, len(self.weights)):
                 temp = self.activation(np.dot(temp, self.weights[l]))
-            predictions.append(np.argmax(temp))
-        return np.array(predictions)
+            predictions.append(temp)
+        return np.argmax(predictions, axis=1)
 
 
