@@ -2,6 +2,20 @@ import math
 import numpy as np
 
 
+class Regularization:
+    """
+    Empty Regularization
+    """
+    def __init__(self, alpha):
+        self.alpha = alpha
+
+    def __call__(self, w):
+        return self.alpha * np.linalg.norm(w)
+
+    def grad(self, w):
+        return self.alpha * np.sign(w)
+
+
 class Regression(object):
     """
         Base regression model.
@@ -15,7 +29,8 @@ class Regression(object):
         self.n_iterations = n_iterations
         self.learning_rate = learning_rate
         self.w = np.array((0, 0))
-        self.regularization = lambda x: x
+        # No regularization
+        self.regularization = Regularization(0)
 
     def initialize_weights(self, n_features: int):
         """
