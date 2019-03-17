@@ -2,7 +2,7 @@ import math
 import numpy as np
 from scipy.stats import chi2, multivariate_normal
 
-from utils.activations_functions import Sigmoid
+from deep.activations_functions import Sigmoid
 from utils.utils import normalize, polynomial_features, make_diagonal
 
 
