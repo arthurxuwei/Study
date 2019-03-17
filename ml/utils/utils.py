@@ -18,6 +18,7 @@ def normalize(X, axis=-1, order=2):
 
 def polynomial_features(X, degree):
     """
+    Polynomial the data
     :param X: dataset
     :param degree: number of features
     :return: new dataset
@@ -37,3 +38,13 @@ def polynomial_features(X, degree):
         X_new[:, index] = np.prod(X[:, index_combs], axis=1)
 
     return X_new
+
+
+def make_diagonal(x):
+    """
+    Get diagonal matrix of dataset
+    """
+    m = np.zeros((len(x), len(x)))
+    for i in range(len(m[0])):
+        m[i, i] = x[i]
+    return m

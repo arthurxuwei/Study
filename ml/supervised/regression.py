@@ -1,9 +1,9 @@
 import math
-from typing import Callable
-
 import numpy as np
+from scipy.stats import chi2, multivariate_normal
 
-from utils.utils import normalize, polynomial_features
+from utils.activations_functions import Sigmoid
+from utils.utils import normalize, polynomial_features, make_diagonal
 
 
 class Regularization:
@@ -82,6 +82,53 @@ class Regression(object):
         pass
 
 
+class GDLogisticRegression(Regression):
+    """
+    Logistic Regression classifier
+    """
+    def __init__(self, n_iterations=4000, learning_rate=0.1):
+        super(GDLogisticRegression, self).__init__(n_iterations, learning_rate)
+        self.sigmoid = Sigmoid()
+        self.w = np.array((0, 0))
+
+    def fix(self, X, y):
+        # init weights
+        limit = 1 / math.sqrt(np.shape(X)[1])
+        self.w = np.random.uniform(-limit, limit, (np.shape(X)[1],))
+
+        for i in range(self.n_iterations):
+            y_pred = self.sigmoid(X.dot(self.w))
+            self.w -= self.learning_rate * -(y - y_pred).dot(X)
+
+    def predict(self, X):
+        return np.round(self.sigmoid(X.dot(self.w))).astype(int)
+
+
+class BatchLogisticRegression(Regression):
+    """
+    Logistic Regression classifier
+    """
+    def __init__(self, n_iterations=4000, learning_rate=0.1):
+        super(BatchLogisticRegression, self).__init__(n_iterations, learning_rate)
+        self.sigmoid = Sigmoid()
+        self.w = np.array((0, 0))
+
+    def fix(self, X, y):
+        # init weights
+        limit = 1 / math.sqrt(np.shape(X)[1])
+        self.w = np.random.uniform(-limit, limit, (np.shape(X)[1],))
+
+        for i in range(self.n_iterations):
+            y_pred = self.sigmoid(X.dot(self.w))
+
+            diag = make_diagonal(self.sigmoid.gradient(X.dot(self.w)))
+            # Batch opt:
+            self.w = np.linalg.pinv(X.T.dot(diag).dot(X)).dot(X.T).dot(diag.dot(X).dot(self.w) + y - y_pred)
+
+    def predict(self, X):
+        return np.round(self.sigmoid(X.dot(self.w))).astype(int)
+
+
 class GDLinearRegression(Regression):
     """
         Linear model with gradient descent.
@@ -134,6 +181,66 @@ class SVDLinearRegression(Regression):
     def predict(self, X):
         X = np.insert(X, 0, 1, axis=1)
         return X.dot(self.w)
+
+
+class BayesianRegression(Regression):
+    """
+    Bayesian regression model
+    """
+    def __init__(self, n_iterations, mu0, omega0, nu0, sigma_sq0):
+        super().__init__(n_iterations, 0)
+        self.w = np.array((0, 0))
+
+        # Prior parameters
+        self.mu0 = mu0
+        self.omega0 = omega0
+        self.nu0 = nu0
+        self.sigma_sq0 = sigma_sq0
+
+    def fit(self, X, y):
+
+        X_X = X.T.dot(X)
+        # Least squares approximate of beta
+        beta_hat = np.linalg.pinv(X_X).dot(X.T).dot(y)
+
+        # The posterior parameters can be determined analytically since we assume conjugate priors for the likelihoods
+        # Normal prior / likelihood => Normal posterior
+        mu_n = np.linalg.pinv(X_X + self.omega0).dot(X_X.dot(beta_hat) + self.omega0.dot(self.mu0))
+        omega_n = X_X + self.omega0
+        # Scaled inverse chi-squared prior / likelihood => Scaled inverse chi-squared posterior
+        nu_n = self.nu0 + np.shape(X)[0]
+        sigma_sq_n = (1.0 / nu_n) * (self.nu0 * self.sigma_sq0 + (y.T.dot(y) + self.mu0.T.dot(self.omega0).dot(self.mu0) - mu_n.T.dot(omega_n.dot(mu_n))))
+
+        # Simulate parameter values for n_iter
+        beta_draws = np.empty((self.n_iterations, np.shape(X)[1]))
+        for i in range(self.n_iterations):
+            # Allows for simulation from the scaled inverse chi squared distribution.
+            X = chi2.rvs(size=1, df=nu_n)
+            sigma_sq = nu_n * sigma_sq_n / X
+            beta = multivariate_normal.rvs(size=1, mean=mu_n[:, 0], cov=sigma_sq * np.linalg.pinv(omega_n))
+            beta_draws[i, :] = beta
+
+        self.w = np.mean(beta_draws, axis=0)
+
+    def predict(self, X):
+        return X.dot(self.w)
+
+
+class PolynomialBayesianRegression(BayesianRegression):
+    """
+    Bayesian regression model with polynomial
+    """
+    def __init__(self, n_iterations, mu0, omega0, nu0, sigma_sq0, degree):
+        super(PolynomialBayesianRegression, self).__init__(n_iterations, mu0, omega0, nu0, sigma_sq0)
+        self.degree = degree
+
+    def fit(self, X, y):
+        X = polynomial_features(X, degree=self.degree)
+        super(PolynomialBayesianRegression, self).fit(X, y)
+
+    def predict(self, X):
+        X = polynomial_features(X, degree=self.degree)
+        super(PolynomialBayesianRegression, self).predict(X)
 
 
 class PolynomialRegression(GDLinearRegression):
