@@ -48,3 +48,12 @@ def make_diagonal(x):
     for i in range(len(m[0])):
         m[i, i] = x[i]
     return m
+
+
+def batch_iterator(X, y=None, batch_size=64):
+    for i in np.arange(0, X.shape[0], batch_size):
+        begin, end = i, min(i + batch_size, X.shape[0])
+        if y is not None:
+            yield X[begin: end], y[begin, end]
+        else:
+            yield X[begin: end]
