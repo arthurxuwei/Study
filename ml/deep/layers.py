@@ -90,6 +90,3 @@ class Dense(Layer):
 
     def output_shape(self):
         return self.n_units,
-
-
-
