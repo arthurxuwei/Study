@@ -138,7 +138,7 @@ class RNN(Layer):
             # input to state_t is the current input and output of previous states
             self.state_input[:, t] = X[:, t].dot(self.U.T) + self.states[:, t - 1].dot(self.W.T)
             self.states[:, t] = self.activation(self.state_input[:, t])
-            self.outputs[: ,t] = self.states[:, t].dot(self.V.T)
+            self.outputs[:, t] = self.states[:, t].dot(self.V.T)
 
         return self.outputs
 
