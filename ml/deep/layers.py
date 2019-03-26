@@ -551,4 +551,27 @@ class Reshape(Layer):
         return self.shape
 
 
+class Dropout(Layer):
+    """
+    A layer that random sets a fraction p of the output units of the previous layer to zero.
+    """
+    def __init__(self, p=0.2):
+        self.p = p
+        self._mask = None
+        self.input_shape = None
+        self.n_units = None
+        self.pass_through = True
+        self.trainable = True
 
+    def forward_pass(self, X, traning=True):
+        c = (1 - self.p)
+        if traning:
+            self._mask = np.random.uniform(size=X.shape) > self.p
+            c = self._mask
+        return X * c
+
+    def backward_pass(self, accum_grad):
+        return accum_grad * self._mask
+
+    def output_shape(self):
+        return self.input_shape
