@@ -500,9 +500,35 @@ class Flatten(Layer):
         return accum_grad.reshape(self.prev_shape)
 
     def output_shape(self):
-        return (np.prod(self.input_shape), )
+        return np.prod(self.input_shape),
 
 
+class UpSampling2D(Layer):
+    """
+    Nearest neighbor up sampling of the input.
+    Repeats the rows and columns of the data by size[0] and size[1] respectively.
+    """
+    def __init__(self, size=(2, 2), input_shape=None):
+        self.prev_shape = None
+        self.trainable = True
+        self.size = size
+        self.input_shape = input_shape
 
+    def forward_pass(self, X, training=True):
+        self.prev_shape = X.shape
+        # Repeat each axis as specified by size
+        X_new = X.repeat(self.size[0], axis=2).repeat(self.size[1], axis=3)
+        return X_new
+
+    def backward_pass(self, accum_grad):
+        # Down sample input to previous shape
+        accum_grad = accum_grad[:, :, ::self.size[0], ::self.size[1]]
+        return accum_grad
+
+    def output_shape(self):
+        channels, height, width = self.input_shape
+        return channels, self.size[0] * height,  self.size[1] * width
+
+ 
 
 
