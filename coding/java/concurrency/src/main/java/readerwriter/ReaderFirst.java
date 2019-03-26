@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.concurrent.*;
 
 /**
- * Created by arthur.xw on 2015/5/12.
+ *
+ * @author arthur.xw
+ * @date 2015/5/12
  */
 public class ReaderFirst {
     public static final int READ_THREAD_SIZE = 4;

@@ -1,10 +1,11 @@
-import readerwriter.ReaderFirst;
+package readerwriter;
 
 /**
- * Created by arthur.xw on 2015/5/11.
+ *
+ * @author arthur.xw
+ * @date 2015/5/11
  */
 public class Main {
-
     public static void main(String[] args){
         ReaderFirst demo = new ReaderFirst();
         demo.startDemo();

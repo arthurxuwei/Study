@@ -1,7 +1,9 @@
 package readerwriter;
 
 /**
- * Created by arthur.xw on 2015/5/12.
+ *
+ * @author arthur.xw
+ * @date 2015/5/12
  */
 public class WriterThread implements Runnable{
 

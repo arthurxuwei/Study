@@ -1,11 +1,13 @@
-package mutliThread.ProducerConsumer;
+package producerconsumer;
 
 import java.util.Random;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by weixu on 5/6/2014.
+ *
+ * @author weixu
+ * @date 5/6/2014
  */
 public class Consumer implements Runnable {
 

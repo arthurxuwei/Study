@@ -1,25 +1,23 @@
-package mutliThread.ProducerConsumer;
+package producerconsumer;
 
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.*;
 
 /**
- * Created by weixu on 5/6/2014.
+ *
+ * @author weixu
+ * @date 5/6/2014
  */
 public class TestMain {
 
     public static void main(String[] args) throws InterruptedException {
 
-        BlockingQueue<String> queue = new LinkedBlockingDeque<String>(10);
+        BlockingQueue<String> queue = new LinkedBlockingDeque<>(10);
         Producer producer1 = new Producer(queue);
         Producer producer2 = new Producer(queue);
         Producer producer3 = new Producer(queue);
 
         Consumer consumer1 = new Consumer(queue);
         Consumer consumer2 = new Consumer(queue);
-
         ExecutorService service = Executors.newCachedThreadPool();
 
         service.execute(producer1);
