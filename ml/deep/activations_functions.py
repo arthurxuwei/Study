@@ -1,6 +1,8 @@
 import numpy as np
 
 
+
+
 class Sigmoid:
     def __call__(self, x):
         return 1 / (1 + np.exp(-x))
@@ -79,3 +81,15 @@ class SoftPlus:
 
     def gradient(self, x):
         return 1 / (1 + np.exp(-x))
+
+
+activation_functions = {
+    'relu': ReLU,
+    'sigmoid': Sigmoid,
+    'selu': SELU,
+    'elu': ELU,
+    'softmax': Softmax,
+    'leaky_relu': LeakyReLU,
+    'tanh': TanH,
+    'softplus': SoftPlus
+}

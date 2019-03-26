@@ -2,6 +2,8 @@ import copy
 import math
 import numpy as np
 
+from deep.activations_functions import activation_functions
+
 
 class Layer(object):
     def __init__(self):
@@ -572,6 +574,29 @@ class Dropout(Layer):
 
     def backward_pass(self, accum_grad):
         return accum_grad * self._mask
+
+    def output_shape(self):
+        return self.input_shape
+
+
+class Acitvation(Layer):
+    """
+    A layer that applies an activation operation to the input
+    """
+    def __init__(self, name):
+        self.activation_name = name
+        self.activation_func = activation_functions[name]()
+        self.trainable = True
+
+    def layer_name(self):
+        return "Activation (%s)" % self.activation_func.__class__.__name__
+
+    def forward_pass(self, X, training=True):
+        self.layer_input = X
+        return self.activation_func(X)
+
+    def backward_pass(self, accum_grad):
+        return accum_grad * self.activation_func.gradient(self.layer_input)
 
     def output_shape(self):
         return self.input_shape
