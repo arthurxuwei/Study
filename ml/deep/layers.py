@@ -443,6 +443,7 @@ class AveragePooling2D(PoolingLayer):
 class ConstantPadding2D(Layer):
     """
     Adds rows and columns of constant values to the input.
+     Expects the input to be of shape (batch_size, channels, height, width)
     """
     def __init__(self, padding, pading_value=0):
         self.padding = padding
@@ -469,6 +470,17 @@ class ConstantPadding2D(Layer):
         return self.input_shape[0], new_height, new_width
 
 
+class ZeroPadding2D(ConstantPadding2D):
+    """
+    Adds rows and columns of zero values to the input
+    """
+    def __init__(self, padding):
+        self.padding = padding
+        if isinstance(padding[0], int):
+            self.padding = ((padding[0], padding[0]), padding[1])
+        if isinstance(padding[1], int):
+            self.padding = (self.padding[0], (padding[1], padding[1]))
+        self.padding = 0
 
 
 
