@@ -5,6 +5,7 @@ from sklearn.model_selection import train_test_split
 from deep.activations_functions import Sigmoid
 from deep.loss_functions import CrossEntropy
 from deep.perceptron import Perceptron
+from utils.plot import Plot
 from utils.utils import normalize, to_categorical, accuracy_score
 
 
@@ -25,6 +26,8 @@ def main():
 
     accuracy = accuracy_score(y_test, y_pred)
     print(f"Accuracy: {accuracy}")
+
+    Plot().plot_in_2d(X_test, y_pred, title="perceptron", accuracy=accuracy, legend_labels=np.unique(y))
 
 
 if __name__ == "__main__":
