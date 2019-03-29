@@ -57,3 +57,44 @@ def batch_iterator(X, y=None, batch_size=64):
             yield X[begin: end], y[begin, end]
         else:
             yield X[begin: end]
+
+
+def to_categorical(x, n_col=None):
+    """
+    One-hot encoding of nominal values
+    :param x:
+    :param n_col:
+    :return:
+    """
+    if not n_col:
+        n_col = np.amax(x) + 1
+
+    one_hot = np.zeros((x.shape[0], n_col))
+    one_hot[np.arange(x.shape[0]), x] = 1
+    return one_hot
+
+
+def shuffle_data(X, y, seed=None):
+    """
+    Random shuffle of the samples in X and y
+    :param X: data sets
+    :param y: label sets
+    :param seed: random seed
+    :return: shuffled data
+    """
+    if seed:
+        np.random.seed(seed)
+    idx = np.arange(X.shape[0])
+    np.random.shuffle(idx)
+    return X[idx], y[idx]
+
+
+def accuracy_score(y_true, y_pred):
+    """
+    Compare y_true to y_pred and return the accuracy
+    :param y_true:
+    :param y_pred:
+    :return:
+    """
+    return np.sum(y_true == y_pred, axis=0) / len(y_true)
+
