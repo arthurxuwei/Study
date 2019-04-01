@@ -9,7 +9,7 @@ class Perceptron:
     """
     The Perceptron. One layer neural network classifier
     """
-    def __init__(self, n_iterations=20000, learning_rate=0.01 , activation_function=Sigmoid, loss=SquareLoss):
+    def __init__(self, n_iterations=20000, learning_rate=0.01, activation_function=Sigmoid, loss=SquareLoss):
         """
         :param n_iterations:  the number of training iterations
         :param learning_rate:  the step length
