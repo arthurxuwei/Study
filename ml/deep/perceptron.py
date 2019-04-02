@@ -25,7 +25,10 @@ class Perceptron:
 
     def fit(self, X, y):
         n_samples, n_features = np.shape(X)
-        _, n_outputs = np.shape(y)
+        if len(np.shape(y)) == 1:
+            n_outputs = np.shape(y)[0]
+        else:
+            _, n_outputs = np.shape(y)
 
         # Initialize weights between [-1/sqrt(N), 1/sqrt(N)]
         limit = 1 / math.sqrt(n_features)
