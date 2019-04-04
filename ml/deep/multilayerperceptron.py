@@ -22,7 +22,7 @@ class MultilayerPerceptron:
         self.v = None
         self.v0 = None
 
-    def fix(self, X, y):
+    def fit(self, X, y):
         n_samples, n_features = X.shape
         _, n_outputs = y.shape
 
