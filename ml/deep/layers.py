@@ -66,7 +66,7 @@ class Dense(Layer):
         # init the weights
         limit = 1 / math.sqrt(self.input_shape[0])
         self.w = np.random.uniform(-limit, limit, (self.input_shape[0], self.n_units))
-        self.w0 = np.zeros(1, self.n_units)
+        self.w0 = np.zeros((1, self.n_units))
 
         self.w_opt = copy.copy(optimizer)
         self.w0_opt = copy.copy(optimizer)
@@ -579,7 +579,7 @@ class Dropout(Layer):
         return self.input_shape
 
 
-class Acitvation(Layer):
+class Activation(Layer):
     """
     A layer that applies an activation operation to the input
     """
