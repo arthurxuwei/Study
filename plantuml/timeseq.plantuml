@@ -1,0 +1,27 @@
+@startuml timeseq
+skinparam backgroundColor #EEEBDC
+skinparam handwritten true
+skinparam sequence {
+    ArrowColor DeepSkyBlue
+    ActorBorderColor DeepSkyBlue
+}
+
+
+
+actor Foo1
+boundary Foo2
+database Foo3
+
+participant "Class" as Class
+
+Foo1 -> Foo2 : to boundary
+activate Foo2
+note left: first
+
+Foo1 -> Foo3 : to database
+
+
+Foo1 -> Class : to class
+
+
+@enduml

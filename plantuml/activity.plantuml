@@ -1,0 +1,12 @@
+@startuml activity
+skinparam backgroundColor #EEEBDC
+skinparam handwritten true
+
+|left|
+start
+|#AntiqueWhite|middle|
+:Hello World;
+|right|
+end
+
+@enduml
