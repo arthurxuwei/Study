@@ -1,3 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<debug-info version="2" />
+<debug-info version="2">
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123155:jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068390468200:jetbrains.mps.baseLanguage.structure.FieldDeclaration" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123165:jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068581242864:jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1081236700938:jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration" />
+  <root nodeRef="r:321cfd63-698a-47dc-9571-a7e1c5a41441(Taco.sandbox)/863668800269715131">
+    <file name="A.java">
+      <node id="863668800269715131" at="14,54,15,37" concept="0" />
+      <node id="863668800269715131" at="15,37,16,37" concept="0" />
+      <node id="863668800269715131" at="16,37,17,40" concept="0" />
+      <node id="863668800269715131" at="17,40,18,38" concept="0" />
+      <node id="863668800269715131" at="18,38,19,42" concept="0" />
+      <node id="863668800269715131" at="23,28,24,23" concept="0" />
+      <node id="863668800269715131" at="24,23,25,56" concept="0" />
+      <node id="863668800269715131" at="25,56,26,20" concept="0" />
+      <node id="863668800269715131" at="26,20,27,52" concept="0" />
+      <node id="863668800269715131" at="27,52,28,16" concept="0" />
+      <node id="863668800269715131" at="28,16,29,26" concept="0" />
+      <node id="863668800269715131" at="32,42,33,23" concept="3" />
+      <node id="863668800269715131" at="33,23,34,24" concept="0" />
+      <node id="863668800269715131" at="32,0,36,0" concept="4" trace="main#([Ljava/lang/String;)V" />
+      <node id="863668800269715131" at="13,0,21,0" concept="2" trace="printComponent#(Ljava/awt/Graphics;)V" />
+      <node id="863668800269715131" at="23,0,31,0" concept="2" trace="initialize#()V" />
+      <node id="863668800269715131" at="12,0,22,0" concept="1" trace="panel" />
+      <scope id="863668800269715131" at="32,42,34,24">
+        <var name="canvas" id="863668800269715131" />
+      </scope>
+      <scope id="863668800269715131" at="32,0,36,0">
+        <var name="args" id="863668800269715131" />
+      </scope>
+      <scope id="863668800269715131" at="14,54,19,42" />
+      <scope id="863668800269715131" at="23,28,29,26" />
+      <scope id="863668800269715131" at="13,0,21,0">
+        <var name="graphics" id="863668800269715131" />
+      </scope>
+      <scope id="863668800269715131" at="23,0,31,0" />
+      <unit id="863668800269715131" at="12,29,21,3" name="Taco.sandbox.A$1" />
+      <unit id="863668800269715131" at="11,0,37,0" name="Taco.sandbox.A" />
+    </file>
+  </root>
+</debug-info>
 

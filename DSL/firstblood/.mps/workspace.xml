@@ -19,7 +19,7 @@
         <TabState>
           <option name="title" value="Console" />
           <tab>
-            <model ref="f37812fc-068d-4935-b37e-8f23c54a1146/r:d7063804-93c8-42a9-b3ce-d50a95a61b5a(TempModulef37812fc-068d-4935-b37e-8f23c54a1146/TempModel_188869784405344)">
+            <model ref="ff940977-5511-44f2-bbe6-1da7ddc04e81/r:89464190-ea00-42d1-8bf5-16a7a1b9db27(TempModuleff940977-5511-44f2-bbe6-1da7ddc04e81/TempModel_217676645586232)">
               <persistence version="9" />
               <languages>
                 <devkit ref="70d3d6da-af63-483d-a75f-9c8acf8de332(jetbrains.mps.console.devkit)" />
@@ -39,11 +39,11 @@
                   <concept id="757553790980850366" name="jetbrains.mps.console.base.structure.History" flags="ng" index="3balQm" />
                 </language>
               </registry>
-              <node concept="aymSD" id="JWnzaFEwqO">
-                <node concept="3balQm" id="JWnzaFEwqP" role="aymYE" />
-                <node concept="2Clz$F" id="JWnzaFEwqQ" role="aymYO" />
-                <node concept="2_V_lH" id="JWnzaFEwqR" role="1PhJh3">
-                  <ref role="2_V_lI" node="JWnzaFEwqQ" resolve="CommandHolder" />
+              <node concept="aymSD" id="$iHUFdwVL3">
+                <node concept="3balQm" id="$iHUFdwVL4" role="aymYE" />
+                <node concept="2Clz$F" id="$iHUFdwVL5" role="aymYO" />
+                <node concept="2_V_lH" id="$iHUFdwVL6" role="1PhJh3">
+                  <ref role="2_V_lI" node="$iHUFdwVL5" resolve="CommandHolder" />
                 </node>
               </node>
             </model>
@@ -75,11 +75,11 @@
                 <selectionStack>
                   <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
                     <property name="hasNonTrivialSelection" value="false" />
-                    <property name="caretX" value="167" />
-                    <property name="caretXRelative" value="16" />
+                    <property name="caretX" value="119" />
+                    <property name="caretXRelative" value="48" />
                     <property name="sideSelectDirection" value="NONE" />
-                    <cellInfo cellId="name">
-                      <node node_reference="r:4b93e23c-85d5-42ff-b8c1-3edc1281dd68(Tortilla.structure)/863668800269686594" />
+                    <cellInfo cellId="property_text">
+                      <node node_reference="r:dce2c52a-f8d7-4c8d-93a1-5b186f7472ab(Tortilla.editor)/653786840141650861" />
                     </cellInfo>
                   </stackElement>
                 </selectionStack>
@@ -88,7 +88,7 @@
                 <foldable />
                 <restoreAlways />
               </memento>
-              <inspectorMemento currentlyEditedNode="r:321cfd63-698a-47dc-9571-a7e1c5a41441(Taco.sandbox)/863668800269715138" saveSessionState="false" viewPositionX="0" viewPositionY="0">
+              <inspectorMemento currentlyEditedNode="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840141804216" saveSessionState="false" viewPositionX="0" viewPositionY="0">
                 <selectionStack />
                 <errorMarkers />
                 <transactionalProperties />
@@ -96,7 +96,7 @@
                 <restoreAlways />
                 <enabledHints />
               </inspectorMemento>
-              <node node_ref="r:4b93e23c-85d5-42ff-b8c1-3edc1281dd68(Tortilla.structure)/863668800269686594" />
+              <node node_ref="r:dce2c52a-f8d7-4c8d-93a1-5b186f7472ab(Tortilla.editor)/653786840141608471" />
             </state>
           </provider>
         </entry>
@@ -109,11 +109,11 @@
                 <selectionStack>
                   <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
                     <property name="hasNonTrivialSelection" value="false" />
-                    <property name="caretX" value="399" />
-                    <property name="caretXRelative" value="48" />
+                    <property name="caretX" value="98" />
+                    <property name="caretXRelative" value="16" />
                     <property name="sideSelectDirection" value="NONE" />
-                    <cellInfo cellId="property_name">
-                      <node node_reference="r:dce2c52a-f8d7-4c8d-93a1-5b186f7472ab(Tortilla.editor)/863668800269715242" />
+                    <cellInfo cellId="Constant_9o3sb9_a0">
+                      <node node_reference="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840142369726" />
                     </cellInfo>
                   </stackElement>
                 </selectionStack>
@@ -122,7 +122,7 @@
                 <foldable />
                 <restoreAlways />
               </memento>
-              <inspectorMemento currentlyEditedNode="r:321cfd63-698a-47dc-9571-a7e1c5a41441(Taco.sandbox)/863668800269715138" saveSessionState="false" viewPositionX="0" viewPositionY="0">
+              <inspectorMemento currentlyEditedNode="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840141804216" saveSessionState="false" viewPositionX="0" viewPositionY="0">
                 <selectionStack />
                 <errorMarkers />
                 <transactionalProperties />
@@ -130,7 +130,7 @@
                 <restoreAlways />
                 <enabledHints />
               </inspectorMemento>
-              <node node_ref="r:dce2c52a-f8d7-4c8d-93a1-5b186f7472ab(Tortilla.editor)/863668800269715142" />
+              <node node_ref="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840142103363" />
             </state>
           </provider>
         </entry>
@@ -143,11 +143,11 @@
                 <selectionStack>
                   <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
                     <property name="hasNonTrivialSelection" value="false" />
-                    <property name="caretX" value="511" />
-                    <property name="caretXRelative" value="32" />
+                    <property name="caretX" value="98" />
+                    <property name="caretXRelative" value="16" />
                     <property name="sideSelectDirection" value="NONE" />
-                    <cellInfo cellId="property_name">
-                      <node node_reference="r:dce2c52a-f8d7-4c8d-93a1-5b186f7472ab(Tortilla.editor)/863668800269715326" />
+                    <cellInfo cellId="Constant_9o3sb9_a0">
+                      <node node_reference="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840142327824" />
                     </cellInfo>
                   </stackElement>
                 </selectionStack>
@@ -156,7 +156,7 @@
                 <foldable />
                 <restoreAlways />
               </memento>
-              <inspectorMemento currentlyEditedNode="r:321cfd63-698a-47dc-9571-a7e1c5a41441(Taco.sandbox)/863668800269715138" saveSessionState="false" viewPositionX="0" viewPositionY="0">
+              <inspectorMemento currentlyEditedNode="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840141804216" saveSessionState="false" viewPositionX="0" viewPositionY="0">
                 <selectionStack />
                 <errorMarkers />
                 <transactionalProperties />
@@ -164,7 +164,7 @@
                 <restoreAlways />
                 <enabledHints />
               </inspectorMemento>
-              <node node_ref="r:dce2c52a-f8d7-4c8d-93a1-5b186f7472ab(Tortilla.editor)/863668800269715251" />
+              <node node_ref="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840142103374" />
             </state>
           </provider>
         </entry>
@@ -177,20 +177,52 @@
                 <selectionStack>
                   <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
                     <property name="hasNonTrivialSelection" value="false" />
-                    <property name="caretX" value="115" />
-                    <property name="caretXRelative" value="24" />
+                    <property name="caretX" value="209" />
+                    <property name="caretXRelative" value="8" />
                     <property name="sideSelectDirection" value="NONE" />
-                    <cellInfo cellId="property_role">
-                      <node node_reference="r:dce2c52a-f8d7-4c8d-93a1-5b186f7472ab(Tortilla.editor)/863668800269715358" />
+                    <cellInfo cellId="Constant_zedcwq_b0">
+                      <node node_reference="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840141804216" />
                     </cellInfo>
                   </stackElement>
                 </selectionStack>
                 <errorMarkers />
                 <transactionalProperties />
-                <foldable />
-                <restoreAlways />
+                <foldable>
+                  <collapsedElement isCollapsed="false">
+                    <cellIdElement cellId="Collection_fao2ea_a">
+                      <node node_reference="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840141837354" />
+                    </cellIdElement>
+                  </collapsedElement>
+                  <collapsedElement isCollapsed="false">
+                    <cellIdElement cellId="HAAC_refNodeList_annotation">
+                      <node node_reference="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840141837354" />
+                    </cellIdElement>
+                  </collapsedElement>
+                  <collapsedElement isCollapsed="false">
+                    <cellIdElement cellId="Collection_msf9u8_b0">
+                      <node node_reference="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840141837158" />
+                    </cellIdElement>
+                  </collapsedElement>
+                  <collapsedElement isCollapsed="false">
+                    <cellIdElement cellId="Collection_fao2ea_a">
+                      <node node_reference="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840141779620" />
+                    </cellIdElement>
+                  </collapsedElement>
+                  <collapsedElement isCollapsed="false">
+                    <cellIdElement cellId="Collection_fao2ea_a">
+                      <node node_reference="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840141822454" />
+                    </cellIdElement>
+                  </collapsedElement>
+                </foldable>
+                <restoreAlways>
+                  <collapsedElement isCollapsed="false">
+                    <cellIdElement cellId="Collection_fao2ea_a">
+                      <node node_reference="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840141779620" />
+                    </cellIdElement>
+                  </collapsedElement>
+                </restoreAlways>
               </memento>
-              <inspectorMemento currentlyEditedNode="r:321cfd63-698a-47dc-9571-a7e1c5a41441(Taco.sandbox)/863668800269715138" saveSessionState="false" viewPositionX="0" viewPositionY="0">
+              <inspectorMemento currentlyEditedNode="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840141804216" saveSessionState="false" viewPositionX="0" viewPositionY="0">
                 <selectionStack />
                 <errorMarkers />
                 <transactionalProperties />
@@ -198,12 +230,21 @@
                 <restoreAlways />
                 <enabledHints />
               </inspectorMemento>
-              <node node_ref="r:dce2c52a-f8d7-4c8d-93a1-5b186f7472ab(Tortilla.editor)/863668800269715335" />
+              <node node_ref="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840141725836" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/solutions/Taco/source_gen/Taco/sandbox/A.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="6" lean-forward="true" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="mps://node://Taco/Taco.sandbox/A">
           <provider selected="true" editor-type-id="MPSFileEditor">
             <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
@@ -211,11 +252,11 @@
                 <selectionStack>
                   <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
                     <property name="hasNonTrivialSelection" value="false" />
-                    <property name="caretX" value="247" />
-                    <property name="caretXRelative" value="16" />
+                    <property name="caretX" value="359" />
+                    <property name="caretXRelative" value="48" />
                     <property name="sideSelectDirection" value="NONE" />
-                    <cellInfo cellId="property_size">
-                      <node node_reference="r:321cfd63-698a-47dc-9571-a7e1c5a41441(Taco.sandbox)/863668800269715138" />
+                    <cellInfo cellId="property_name">
+                      <node node_reference="r:321cfd63-698a-47dc-9571-a7e1c5a41441(Taco.sandbox)/653786840141675450" />
                     </cellInfo>
                   </stackElement>
                 </selectionStack>
@@ -224,7 +265,7 @@
                 <foldable />
                 <restoreAlways />
               </memento>
-              <inspectorMemento currentlyEditedNode="r:321cfd63-698a-47dc-9571-a7e1c5a41441(Taco.sandbox)/863668800269715138" saveSessionState="false" viewPositionX="0" viewPositionY="0">
+              <inspectorMemento currentlyEditedNode="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840141804216" saveSessionState="false" viewPositionX="0" viewPositionY="0">
                 <selectionStack />
                 <errorMarkers />
                 <transactionalProperties />
@@ -232,6 +273,122 @@
                 <restoreAlways />
                 <enabledHints />
               </inspectorMemento>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="previewTaco.sandbox@0/A.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="294">
+              <caret line="18" column="23" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="mps://node://Tortilla#01/main@generator/main">
+          <provider selected="true" editor-type-id="MPSFileEditor">
+            <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
+              <memento saveSessionState="false" viewPositionX="0" viewPositionY="0">
+                <selectionStack>
+                  <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
+                    <property name="hasNonTrivialSelection" value="false" />
+                    <property name="caretX" value="111" />
+                    <property name="caretXRelative" value="32" />
+                    <property name="sideSelectDirection" value="NONE" />
+                    <cellInfo cellId="property_name">
+                      <node node_reference="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840142315909" />
+                    </cellInfo>
+                  </stackElement>
+                </selectionStack>
+                <errorMarkers />
+                <transactionalProperties />
+                <foldable>
+                  <collapsedElement isCollapsed="false">
+                    <cellIdElement cellId="refNodeList_dropAttrubuteRule">
+                      <node node_reference="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/863668800269686593" />
+                    </cellIdElement>
+                  </collapsedElement>
+                </foldable>
+                <restoreAlways />
+              </memento>
+              <inspectorMemento currentlyEditedNode="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840141804216" saveSessionState="false" viewPositionX="0" viewPositionY="0">
+                <selectionStack />
+                <errorMarkers />
+                <transactionalProperties />
+                <foldable />
+                <restoreAlways />
+                <enabledHints />
+              </inspectorMemento>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="mps://node://Tortilla/Tortilla.structure/Color">
+          <provider selected="true" editor-type-id="MPSFileEditor">
+            <state class="jetbrains.mps.ide.editor.tabs.TabbedEditor$TabbedEditorState">
+              <memento saveSessionState="false" viewPositionX="0" viewPositionY="0">
+                <selectionStack>
+                  <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
+                    <property name="hasNonTrivialSelection" value="false" />
+                    <property name="caretX" value="287" />
+                    <property name="caretXRelative" value="40" />
+                    <property name="sideSelectDirection" value="NONE" />
+                    <cellInfo cellId="property_name">
+                      <node node_reference="r:dce2c52a-f8d7-4c8d-93a1-5b186f7472ab(Tortilla.editor)/653786840141518814" />
+                    </cellInfo>
+                  </stackElement>
+                </selectionStack>
+                <errorMarkers />
+                <transactionalProperties />
+                <foldable />
+                <restoreAlways />
+              </memento>
+              <inspectorMemento currentlyEditedNode="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840141804216" saveSessionState="false" viewPositionX="0" viewPositionY="0">
+                <selectionStack />
+                <errorMarkers />
+                <transactionalProperties />
+                <foldable />
+                <restoreAlways />
+                <enabledHints />
+              </inspectorMemento>
+              <node node_ref="r:dce2c52a-f8d7-4c8d-93a1-5b186f7472ab(Tortilla.editor)/653786840141518814" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="mps://node://Tortilla/Tortilla.structure/ColorReference">
+          <provider selected="true" editor-type-id="MPSFileEditor">
+            <state class="jetbrains.mps.ide.editor.tabs.TabbedEditor$TabbedEditorState">
+              <memento saveSessionState="false" viewPositionX="0" viewPositionY="0">
+                <selectionStack>
+                  <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
+                    <property name="hasNonTrivialSelection" value="false" />
+                    <property name="caretX" value="359" />
+                    <property name="caretXRelative" value="112" />
+                    <property name="sideSelectDirection" value="NONE" />
+                    <cellInfo cellId="property_name">
+                      <node node_reference="r:dce2c52a-f8d7-4c8d-93a1-5b186f7472ab(Tortilla.editor)/653786840141608430" />
+                    </cellInfo>
+                  </stackElement>
+                </selectionStack>
+                <errorMarkers />
+                <transactionalProperties />
+                <foldable />
+                <restoreAlways />
+              </memento>
+              <inspectorMemento currentlyEditedNode="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840141804216" saveSessionState="false" viewPositionX="0" viewPositionY="0">
+                <selectionStack />
+                <errorMarkers />
+                <transactionalProperties />
+                <foldable />
+                <restoreAlways />
+                <enabledHints />
+              </inspectorMemento>
+              <node node_ref="r:dce2c52a-f8d7-4c8d-93a1-5b186f7472ab(Tortilla.editor)/653786840141608430" />
             </state>
           </provider>
         </entry>
@@ -263,7 +420,7 @@
       </MessageListState>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-1920" />
     <option name="y" value="-252" />
     <option name="width" value="1920" />
@@ -353,13 +510,85 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="cdaa6fe3-408f-4522-ad20-bec25320347d" />
+              <option name="myItemId" value="3b690b42-594e-46b6-b96f-f010313cf097(Tortilla)" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="accessories" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="r:de64978b-2a7e-4d90-8aaf-bcaca0c67ca7(Tortilla.colors) in IdeaFile[file:///Users/arthur.xw/MPSProjects/firstblood/languages/Tortilla/models/Tortilla.colors.mps]" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="Project" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="3b690b42-594e-46b6-b96f-f010313cf097(Tortilla)" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tortilla#01" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Project" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="3b690b42-594e-46b6-b96f-f010313cf097(Tortilla)" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="all models" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Project" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cdaa6fe3-408f-4522-ad20-bec25320347d" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Taco" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Project" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="3b690b42-594e-46b6-b96f-f010313cf097(Tortilla)" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="r:dce2c52a-f8d7-4c8d-93a1-5b186f7472ab(Tortilla.editor) in IdeaFile[file:///Users/arthur.xw/MPSProjects/firstblood/languages/Tortilla/models/Tortilla.editor.mps]" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Project" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="3b690b42-594e-46b6-b96f-f010313cf097(Tortilla)" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="accessories" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
@@ -386,6 +615,36 @@
               <option name="myItemId" value="3b690b42-594e-46b6-b96f-f010313cf097(Tortilla)" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tortilla#01" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator) in IdeaFile[file:///Users/arthur.xw/MPSProjects/firstblood/languages/Tortilla/generator/template/main@generator.mps]" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="863668800269686593" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Project" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="3b690b42-594e-46b6-b96f-f010313cf097(Tortilla)" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tortilla#01" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator) in IdeaFile[file:///Users/arthur.xw/MPSProjects/firstblood/languages/Tortilla/generator/template/main@generator.mps]" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -396,14 +655,20 @@
               <option name="myItemId" value="cdaa6fe3-408f-4522-ad20-bec25320347d" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Taco" />
+              <option name="myItemId" value="Project" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Modules Pool" />
+              <option name="myItemId" value="Project" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="3b690b42-594e-46b6-b96f-f010313cf097(Tortilla)" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
@@ -425,7 +690,7 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
-          <SELECTED>
+          <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="Project" />
               <option name="myItemType" value="" />
@@ -444,6 +709,78 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="863668800269715131" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Project" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="3b690b42-594e-46b6-b96f-f010313cf097(Tortilla)" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tortilla#01" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator) in IdeaFile[file:///Users/arthur.xw/MPSProjects/firstblood/languages/Tortilla/generator/template/main@generator.mps]" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="653786840142103363" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Project" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="3b690b42-594e-46b6-b96f-f010313cf097(Tortilla)" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tortilla#01" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator) in IdeaFile[file:///Users/arthur.xw/MPSProjects/firstblood/languages/Tortilla/generator/template/main@generator.mps]" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="653786840141725836" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Modules Pool" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <SELECTED>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Project" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="3b690b42-594e-46b6-b96f-f010313cf097(Tortilla)" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tortilla#01" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator) in IdeaFile[file:///Users/arthur.xw/MPSProjects/firstblood/languages/Tortilla/generator/template/main@generator.mps]" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="653786840142103363" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </SELECTED>
@@ -466,19 +803,95 @@
       </list>
     </option>
   </component>
+  <component name="RunManager" selected="Java Application.Node A">
+    <configuration name="All Tests in Project" type="JUnit Tests" factoryName="JUnit Tests" temporary="true">
+      <myJUnitSettings>
+        <MyState>
+          <option name="myModelRef" />
+          <option name="myModuleRef" />
+          <option name="myInProcess" value="false" />
+          <option name="myReuseCaches" value="true" />
+          <option name="myOverrideCachesLocation" value="false" />
+          <option name="myDebug" value="false" />
+          <option name="myCachesPath" value="$USER_HOME$/Library/Preferences/MPSJUnitRC0" />
+          <option name="myTestCases">
+            <list />
+          </option>
+          <option name="myTestMethods">
+            <list />
+          </option>
+          <option name="myRunType" value="0" />
+        </MyState>
+      </myJUnitSettings>
+      <myJavaRunParameters>
+        <MyState>
+          <option name="myJavaParameters">
+            <JavaRunParameters>
+              <option name="jrePath" />
+              <option name="programParameters" />
+              <option name="useAlternativeJre" value="false" />
+              <option name="vmOptions" />
+              <option name="workingDirectory" value="$APPLICATION_HOME_DIR$/bin" />
+            </JavaRunParameters>
+          </option>
+        </MyState>
+      </myJavaRunParameters>
+      <myDeploySettings>
+        <MyState>
+          <option name="myPluginsToDeploy">
+            <list />
+          </option>
+        </MyState>
+      </myDeploySettings>
+      <method v="2">
+        <option name="jetbrains.mps.execution.configurations.pluginSolution.plugin.MakeNodePointers_BeforeTask" enabled="true" />
+        <option name="jetbrains.mps.execution.configurations.implementation.plugin.plugin.AssemblePluginsBeforeTask_BeforeTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Node A" type="Java Application" factoryName="Java" temporary="true">
+      <myNode>
+        <MyState>
+          <option name="myNodePointer" value="r:321cfd63-698a-47dc-9571-a7e1c5a41441(Taco.sandbox)/863668800269715131" />
+          <option name="myNodeText" value="Taco.sandbox.A" />
+        </MyState>
+      </myNode>
+      <myRunParameters>
+        <MyState>
+          <option name="myJavaParameters">
+            <JavaRunParameters>
+              <option name="jrePath" />
+              <option name="programParameters" />
+              <option name="useAlternativeJre" value="false" />
+              <option name="vmOptions" />
+              <option name="workingDirectory" value="$APPLICATION_HOME_DIR$/bin" />
+            </JavaRunParameters>
+          </option>
+        </MyState>
+      </myRunParameters>
+      <method v="2">
+        <option name="jetbrains.mps.execution.configurations.pluginSolution.plugin.MakeNodePointers_BeforeTask" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Java Application.Node A" />
+        <item itemvalue="JUnit Tests.All Tests in Project" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1920" y="-252" width="1920" height="1057" extended-state="6" />
+    <frame x="-1920" y="-252" width="1920" height="1057" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16027689" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16347177" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49733758" visible="true" weight="0.32928064" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49946752" weight="0.39918947" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -486,7 +899,7 @@
       <window_info anchor="bottom" id="Bookmarks" order="8" />
       <window_info anchor="bottom" id="Migration" order="9" />
       <window_info anchor="bottom" id="Menu Trace" order="10" />
-      <window_info anchor="bottom" id="Terminal" order="11" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32928064" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="bottom" id="Classpath Explorer" order="13" />
       <window_info anchor="bottom" id="Usages" order="14" />
@@ -495,11 +908,11 @@
       <window_info anchor="bottom" id="Version Control" order="17" />
       <window_info anchor="bottom" id="Generation Tracer" order="18" />
       <window_info anchor="bottom" id="Cell Explorer" order="19" />
-      <window_info anchor="bottom" id="Messages" order="20" visible="true" weight="0.32928064" />
+      <window_info anchor="bottom" id="Messages" order="20" sideWeight="0.4978701" weight="0.32928064" />
       <window_info anchor="bottom" id="Typechecker State" order="21" />
-      <window_info anchor="bottom" id="Console" order="22" />
+      <window_info anchor="bottom" id="Console" order="22" weight="0.32928064" />
       <window_info anchor="bottom" id="RefactoringView" order="23" />
-      <window_info anchor="bottom" id="Inspector" order="24" side_tool="true" />
+      <window_info anchor="bottom" id="Inspector" order="24" sideWeight="0.5026624" side_tool="true" visible="true" weight="0.32928064" />
       <window_info anchor="bottom" id="Dependencies Viewer" order="25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -507,7 +920,7 @@
       <window_info anchor="right" id="Class Hierarchy" order="3" />
       <window_info anchor="right" id="Typesystem Trace" order="4" />
       <window_info anchor="right" id="Supertypes" order="5" />
-      <window_info anchor="right" id="Context Actions" order="6" />
+      <window_info anchor="right" id="Context Actions" order="6" weight="0.32960597" />
     </layout>
   </component>
   <component name="UsagesViewTool">
@@ -711,7 +1124,134 @@
     </entry>
     <entry file="mps://node://NewLanguage#01/main@generator/main" />
     <entry file="mps://node://NewSolution/NewSolution.run/null" />
+    <entry file="mps://node://Tortilla/Tortilla.colors/white">
+      <provider selected="true" editor-type-id="MPSFileEditor">
+        <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
+          <memento saveSessionState="false" viewPositionX="0" viewPositionY="0">
+            <selectionStack>
+              <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
+                <property name="hasNonTrivialSelection" value="false" />
+                <property name="caretX" value="103" />
+                <property name="caretXRelative" value="40" />
+                <property name="sideSelectDirection" value="NONE" />
+                <cellInfo cellId="property_name">
+                  <node node_reference="r:de64978b-2a7e-4d90-8aaf-bcaca0c67ca7(Tortilla.colors)/653786840141608423" />
+                </cellInfo>
+              </stackElement>
+            </selectionStack>
+            <errorMarkers />
+            <transactionalProperties />
+            <foldable />
+            <restoreAlways />
+          </memento>
+          <inspectorMemento currentlyEditedNode="r:321cfd63-698a-47dc-9571-a7e1c5a41441(Taco.sandbox)/863668800269715132" saveSessionState="false" viewPositionX="0" viewPositionY="0">
+            <selectionStack />
+            <errorMarkers />
+            <transactionalProperties />
+            <foldable />
+            <restoreAlways />
+            <enabledHints />
+          </inspectorMemento>
+        </state>
+      </provider>
+    </entry>
+    <entry file="mps://node://Tortilla/Tortilla.colors/red">
+      <provider selected="true" editor-type-id="MPSFileEditor">
+        <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
+          <memento saveSessionState="false" viewPositionX="0" viewPositionY="0">
+            <selectionStack>
+              <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
+                <property name="hasNonTrivialSelection" value="false" />
+                <property name="caretX" value="87" />
+                <property name="caretXRelative" value="24" />
+                <property name="sideSelectDirection" value="NONE" />
+                <cellInfo cellId="property_name">
+                  <node node_reference="r:de64978b-2a7e-4d90-8aaf-bcaca0c67ca7(Tortilla.colors)/653786840141608424" />
+                </cellInfo>
+              </stackElement>
+            </selectionStack>
+            <errorMarkers />
+            <transactionalProperties />
+            <foldable />
+            <restoreAlways />
+          </memento>
+          <inspectorMemento currentlyEditedNode="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840141725834" saveSessionState="false" viewPositionX="0" viewPositionY="0">
+            <selectionStack />
+            <errorMarkers />
+            <transactionalProperties />
+            <foldable />
+            <restoreAlways />
+            <enabledHints />
+          </inspectorMemento>
+        </state>
+      </provider>
+    </entry>
+    <entry file="mps://node://Tortilla/Tortilla.colors/yellow">
+      <provider selected="true" editor-type-id="MPSFileEditor">
+        <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
+          <memento saveSessionState="false" viewPositionX="0" viewPositionY="0">
+            <selectionStack>
+              <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
+                <property name="hasNonTrivialSelection" value="false" />
+                <property name="caretX" value="111" />
+                <property name="caretXRelative" value="48" />
+                <property name="sideSelectDirection" value="NONE" />
+                <cellInfo cellId="property_name">
+                  <node node_reference="r:de64978b-2a7e-4d90-8aaf-bcaca0c67ca7(Tortilla.colors)/653786840141608425" />
+                </cellInfo>
+              </stackElement>
+            </selectionStack>
+            <errorMarkers />
+            <transactionalProperties />
+            <foldable />
+            <restoreAlways />
+          </memento>
+          <inspectorMemento currentlyEditedNode="r:321cfd63-698a-47dc-9571-a7e1c5a41441(Taco.sandbox)/653786840141675450" saveSessionState="false" viewPositionX="0" viewPositionY="0">
+            <selectionStack />
+            <errorMarkers />
+            <transactionalProperties />
+            <foldable />
+            <restoreAlways />
+            <enabledHints />
+          </inspectorMemento>
+        </state>
+      </provider>
+    </entry>
+    <entry file="mps://node://Tortilla/Tortilla.colors/green">
+      <provider selected="true" editor-type-id="MPSFileEditor">
+        <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
+          <memento saveSessionState="false" viewPositionX="0" viewPositionY="0">
+            <selectionStack>
+              <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
+                <property name="hasNonTrivialSelection" value="false" />
+                <property name="caretX" value="103" />
+                <property name="caretXRelative" value="40" />
+                <property name="sideSelectDirection" value="NONE" />
+                <cellInfo cellId="property_name">
+                  <node node_reference="r:de64978b-2a7e-4d90-8aaf-bcaca0c67ca7(Tortilla.colors)/653786840141608426" />
+                </cellInfo>
+              </stackElement>
+            </selectionStack>
+            <errorMarkers />
+            <transactionalProperties />
+            <foldable />
+            <restoreAlways />
+          </memento>
+          <inspectorMemento currentlyEditedNode="r:321cfd63-698a-47dc-9571-a7e1c5a41441(Taco.sandbox)/653786840141675450" saveSessionState="false" viewPositionX="0" viewPositionY="0">
+            <selectionStack />
+            <errorMarkers />
+            <transactionalProperties />
+            <foldable />
+            <restoreAlways />
+            <enabledHints />
+          </inspectorMemento>
+        </state>
+      </provider>
+    </entry>
     <entry file="mps://node://Tortilla/Tortilla.structure/&lt;no name&gt;[ConceptDeclaration]" />
+    <entry file="mps://node://Taco/Taco.sandbox/&lt;no name&gt;[Canvas]" />
+    <entry file="mps://node://Tortilla/Tortilla.colors/&lt;no name&gt;[Color]" />
+    <entry file="mps://node://Taco@transient16/Taco.sandbox@0/A" />
     <entry file="mps://node://Tortilla/Tortilla.structure/Shape">
       <provider selected="true" editor-type-id="MPSFileEditor">
         <state class="jetbrains.mps.ide.editor.tabs.TabbedEditor$TabbedEditorState">
@@ -719,43 +1259,11 @@
             <selectionStack>
               <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
                 <property name="hasNonTrivialSelection" value="false" />
-                <property name="caretX" value="167" />
-                <property name="caretXRelative" value="16" />
-                <property name="sideSelectDirection" value="NONE" />
-                <cellInfo cellId="name">
-                  <node node_reference="r:4b93e23c-85d5-42ff-b8c1-3edc1281dd68(Tortilla.structure)/863668800269686594" />
-                </cellInfo>
-              </stackElement>
-            </selectionStack>
-            <errorMarkers />
-            <transactionalProperties />
-            <foldable />
-            <restoreAlways />
-          </memento>
-          <inspectorMemento currentlyEditedNode="r:321cfd63-698a-47dc-9571-a7e1c5a41441(Taco.sandbox)/863668800269715138" saveSessionState="false" viewPositionX="0" viewPositionY="0">
-            <selectionStack />
-            <errorMarkers />
-            <transactionalProperties />
-            <foldable />
-            <restoreAlways />
-            <enabledHints />
-          </inspectorMemento>
-          <node node_ref="r:4b93e23c-85d5-42ff-b8c1-3edc1281dd68(Tortilla.structure)/863668800269686594" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="mps://node://Tortilla/Tortilla.structure/Circle">
-      <provider selected="true" editor-type-id="MPSFileEditor">
-        <state class="jetbrains.mps.ide.editor.tabs.TabbedEditor$TabbedEditorState">
-          <memento saveSessionState="false" viewPositionX="0" viewPositionY="0">
-            <selectionStack>
-              <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
-                <property name="hasNonTrivialSelection" value="false" />
-                <property name="caretX" value="399" />
+                <property name="caretX" value="119" />
                 <property name="caretXRelative" value="48" />
                 <property name="sideSelectDirection" value="NONE" />
-                <cellInfo cellId="property_name">
-                  <node node_reference="r:dce2c52a-f8d7-4c8d-93a1-5b186f7472ab(Tortilla.editor)/863668800269715242" />
+                <cellInfo cellId="property_text">
+                  <node node_reference="r:dce2c52a-f8d7-4c8d-93a1-5b186f7472ab(Tortilla.editor)/653786840141650861" />
                 </cellInfo>
               </stackElement>
             </selectionStack>
@@ -764,7 +1272,7 @@
             <foldable />
             <restoreAlways />
           </memento>
-          <inspectorMemento currentlyEditedNode="r:321cfd63-698a-47dc-9571-a7e1c5a41441(Taco.sandbox)/863668800269715138" saveSessionState="false" viewPositionX="0" viewPositionY="0">
+          <inspectorMemento currentlyEditedNode="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840141804216" saveSessionState="false" viewPositionX="0" viewPositionY="0">
             <selectionStack />
             <errorMarkers />
             <transactionalProperties />
@@ -772,31 +1280,108 @@
             <restoreAlways />
             <enabledHints />
           </inspectorMemento>
-          <node node_ref="r:dce2c52a-f8d7-4c8d-93a1-5b186f7472ab(Tortilla.editor)/863668800269715142" />
+          <node node_ref="r:dce2c52a-f8d7-4c8d-93a1-5b186f7472ab(Tortilla.editor)/653786840141608471" />
         </state>
       </provider>
     </entry>
-    <entry file="mps://node://Tortilla/Tortilla.structure/Square">
+    <entry file="mps://node://Tortilla/Tortilla.structure/Color">
       <provider selected="true" editor-type-id="MPSFileEditor">
         <state class="jetbrains.mps.ide.editor.tabs.TabbedEditor$TabbedEditorState">
           <memento saveSessionState="false" viewPositionX="0" viewPositionY="0">
             <selectionStack>
               <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
                 <property name="hasNonTrivialSelection" value="false" />
-                <property name="caretX" value="511" />
+                <property name="caretX" value="287" />
+                <property name="caretXRelative" value="40" />
+                <property name="sideSelectDirection" value="NONE" />
+                <cellInfo cellId="property_name">
+                  <node node_reference="r:dce2c52a-f8d7-4c8d-93a1-5b186f7472ab(Tortilla.editor)/653786840141518814" />
+                </cellInfo>
+              </stackElement>
+            </selectionStack>
+            <errorMarkers />
+            <transactionalProperties />
+            <foldable />
+            <restoreAlways />
+          </memento>
+          <inspectorMemento currentlyEditedNode="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840141804216" saveSessionState="false" viewPositionX="0" viewPositionY="0">
+            <selectionStack />
+            <errorMarkers />
+            <transactionalProperties />
+            <foldable />
+            <restoreAlways />
+            <enabledHints />
+          </inspectorMemento>
+          <node node_ref="r:dce2c52a-f8d7-4c8d-93a1-5b186f7472ab(Tortilla.editor)/653786840141518814" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="mps://node://Tortilla/Tortilla.structure/ColorReference">
+      <provider selected="true" editor-type-id="MPSFileEditor">
+        <state class="jetbrains.mps.ide.editor.tabs.TabbedEditor$TabbedEditorState">
+          <memento saveSessionState="false" viewPositionX="0" viewPositionY="0">
+            <selectionStack>
+              <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
+                <property name="hasNonTrivialSelection" value="false" />
+                <property name="caretX" value="359" />
+                <property name="caretXRelative" value="112" />
+                <property name="sideSelectDirection" value="NONE" />
+                <cellInfo cellId="property_name">
+                  <node node_reference="r:dce2c52a-f8d7-4c8d-93a1-5b186f7472ab(Tortilla.editor)/653786840141608430" />
+                </cellInfo>
+              </stackElement>
+            </selectionStack>
+            <errorMarkers />
+            <transactionalProperties />
+            <foldable />
+            <restoreAlways />
+          </memento>
+          <inspectorMemento currentlyEditedNode="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840141804216" saveSessionState="false" viewPositionX="0" viewPositionY="0">
+            <selectionStack />
+            <errorMarkers />
+            <transactionalProperties />
+            <foldable />
+            <restoreAlways />
+            <enabledHints />
+          </inspectorMemento>
+          <node node_ref="r:dce2c52a-f8d7-4c8d-93a1-5b186f7472ab(Tortilla.editor)/653786840141608430" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/solutions/Taco/source_gen/Taco/sandbox/A.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="6" lean-forward="true" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="mps://node://Tortilla#01/main@generator/main">
+      <provider selected="true" editor-type-id="MPSFileEditor">
+        <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
+          <memento saveSessionState="false" viewPositionX="0" viewPositionY="0">
+            <selectionStack>
+              <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
+                <property name="hasNonTrivialSelection" value="false" />
+                <property name="caretX" value="111" />
                 <property name="caretXRelative" value="32" />
                 <property name="sideSelectDirection" value="NONE" />
                 <cellInfo cellId="property_name">
-                  <node node_reference="r:dce2c52a-f8d7-4c8d-93a1-5b186f7472ab(Tortilla.editor)/863668800269715326" />
+                  <node node_reference="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840142315909" />
                 </cellInfo>
               </stackElement>
             </selectionStack>
             <errorMarkers />
             <transactionalProperties />
-            <foldable />
+            <foldable>
+              <collapsedElement isCollapsed="false">
+                <cellIdElement cellId="refNodeList_dropAttrubuteRule">
+                  <node node_reference="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/863668800269686593" />
+                </cellIdElement>
+              </collapsedElement>
+            </foldable>
             <restoreAlways />
           </memento>
-          <inspectorMemento currentlyEditedNode="r:321cfd63-698a-47dc-9571-a7e1c5a41441(Taco.sandbox)/863668800269715138" saveSessionState="false" viewPositionX="0" viewPositionY="0">
+          <inspectorMemento currentlyEditedNode="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840141804216" saveSessionState="false" viewPositionX="0" viewPositionY="0">
             <selectionStack />
             <errorMarkers />
             <transactionalProperties />
@@ -804,7 +1389,6 @@
             <restoreAlways />
             <enabledHints />
           </inspectorMemento>
-          <node node_ref="r:dce2c52a-f8d7-4c8d-93a1-5b186f7472ab(Tortilla.editor)/863668800269715251" />
         </state>
       </provider>
     </entry>
@@ -815,20 +1399,52 @@
             <selectionStack>
               <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
                 <property name="hasNonTrivialSelection" value="false" />
-                <property name="caretX" value="115" />
-                <property name="caretXRelative" value="24" />
+                <property name="caretX" value="209" />
+                <property name="caretXRelative" value="8" />
                 <property name="sideSelectDirection" value="NONE" />
-                <cellInfo cellId="property_role">
-                  <node node_reference="r:dce2c52a-f8d7-4c8d-93a1-5b186f7472ab(Tortilla.editor)/863668800269715358" />
+                <cellInfo cellId="Constant_zedcwq_b0">
+                  <node node_reference="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840141804216" />
                 </cellInfo>
               </stackElement>
             </selectionStack>
             <errorMarkers />
             <transactionalProperties />
-            <foldable />
-            <restoreAlways />
+            <foldable>
+              <collapsedElement isCollapsed="false">
+                <cellIdElement cellId="Collection_fao2ea_a">
+                  <node node_reference="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840141837354" />
+                </cellIdElement>
+              </collapsedElement>
+              <collapsedElement isCollapsed="false">
+                <cellIdElement cellId="HAAC_refNodeList_annotation">
+                  <node node_reference="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840141837354" />
+                </cellIdElement>
+              </collapsedElement>
+              <collapsedElement isCollapsed="false">
+                <cellIdElement cellId="Collection_msf9u8_b0">
+                  <node node_reference="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840141837158" />
+                </cellIdElement>
+              </collapsedElement>
+              <collapsedElement isCollapsed="false">
+                <cellIdElement cellId="Collection_fao2ea_a">
+                  <node node_reference="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840141779620" />
+                </cellIdElement>
+              </collapsedElement>
+              <collapsedElement isCollapsed="false">
+                <cellIdElement cellId="Collection_fao2ea_a">
+                  <node node_reference="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840141822454" />
+                </cellIdElement>
+              </collapsedElement>
+            </foldable>
+            <restoreAlways>
+              <collapsedElement isCollapsed="false">
+                <cellIdElement cellId="Collection_fao2ea_a">
+                  <node node_reference="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840141779620" />
+                </cellIdElement>
+              </collapsedElement>
+            </restoreAlways>
           </memento>
-          <inspectorMemento currentlyEditedNode="r:321cfd63-698a-47dc-9571-a7e1c5a41441(Taco.sandbox)/863668800269715138" saveSessionState="false" viewPositionX="0" viewPositionY="0">
+          <inspectorMemento currentlyEditedNode="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840141804216" saveSessionState="false" viewPositionX="0" viewPositionY="0">
             <selectionStack />
             <errorMarkers />
             <transactionalProperties />
@@ -836,22 +1452,22 @@
             <restoreAlways />
             <enabledHints />
           </inspectorMemento>
-          <node node_ref="r:dce2c52a-f8d7-4c8d-93a1-5b186f7472ab(Tortilla.editor)/863668800269715335" />
+          <node node_ref="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840141725836" />
         </state>
       </provider>
     </entry>
-    <entry file="mps://node://Taco/Taco.sandbox/&lt;no name&gt;[Canvas]">
+    <entry file="mps://node://Taco/Taco.sandbox/A">
       <provider selected="true" editor-type-id="MPSFileEditor">
         <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
           <memento saveSessionState="false" viewPositionX="0" viewPositionY="0">
             <selectionStack>
               <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
                 <property name="hasNonTrivialSelection" value="false" />
-                <property name="caretX" value="247" />
-                <property name="caretXRelative" value="16" />
+                <property name="caretX" value="359" />
+                <property name="caretXRelative" value="48" />
                 <property name="sideSelectDirection" value="NONE" />
-                <cellInfo cellId="property_size">
-                  <node node_reference="r:321cfd63-698a-47dc-9571-a7e1c5a41441(Taco.sandbox)/863668800269715138" />
+                <cellInfo cellId="property_name">
+                  <node node_reference="r:321cfd63-698a-47dc-9571-a7e1c5a41441(Taco.sandbox)/653786840141675450" />
                 </cellInfo>
               </stackElement>
             </selectionStack>
@@ -860,7 +1476,7 @@
             <foldable />
             <restoreAlways />
           </memento>
-          <inspectorMemento currentlyEditedNode="r:321cfd63-698a-47dc-9571-a7e1c5a41441(Taco.sandbox)/863668800269715138" saveSessionState="false" viewPositionX="0" viewPositionY="0">
+          <inspectorMemento currentlyEditedNode="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840141804216" saveSessionState="false" viewPositionX="0" viewPositionY="0">
             <selectionStack />
             <errorMarkers />
             <transactionalProperties />
@@ -868,6 +1484,70 @@
             <restoreAlways />
             <enabledHints />
           </inspectorMemento>
+        </state>
+      </provider>
+    </entry>
+    <entry file="mps://node://Tortilla/Tortilla.structure/Square">
+      <provider selected="true" editor-type-id="MPSFileEditor">
+        <state class="jetbrains.mps.ide.editor.tabs.TabbedEditor$TabbedEditorState">
+          <memento saveSessionState="false" viewPositionX="0" viewPositionY="0">
+            <selectionStack>
+              <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
+                <property name="hasNonTrivialSelection" value="false" />
+                <property name="caretX" value="98" />
+                <property name="caretXRelative" value="16" />
+                <property name="sideSelectDirection" value="NONE" />
+                <cellInfo cellId="Constant_9o3sb9_a0">
+                  <node node_reference="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840142327824" />
+                </cellInfo>
+              </stackElement>
+            </selectionStack>
+            <errorMarkers />
+            <transactionalProperties />
+            <foldable />
+            <restoreAlways />
+          </memento>
+          <inspectorMemento currentlyEditedNode="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840141804216" saveSessionState="false" viewPositionX="0" viewPositionY="0">
+            <selectionStack />
+            <errorMarkers />
+            <transactionalProperties />
+            <foldable />
+            <restoreAlways />
+            <enabledHints />
+          </inspectorMemento>
+          <node node_ref="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840142103374" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="mps://node://Tortilla/Tortilla.structure/Circle">
+      <provider selected="true" editor-type-id="MPSFileEditor">
+        <state class="jetbrains.mps.ide.editor.tabs.TabbedEditor$TabbedEditorState">
+          <memento saveSessionState="false" viewPositionX="0" viewPositionY="0">
+            <selectionStack>
+              <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
+                <property name="hasNonTrivialSelection" value="false" />
+                <property name="caretX" value="98" />
+                <property name="caretXRelative" value="16" />
+                <property name="sideSelectDirection" value="NONE" />
+                <cellInfo cellId="Constant_9o3sb9_a0">
+                  <node node_reference="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840142369726" />
+                </cellInfo>
+              </stackElement>
+            </selectionStack>
+            <errorMarkers />
+            <transactionalProperties />
+            <foldable />
+            <restoreAlways />
+          </memento>
+          <inspectorMemento currentlyEditedNode="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840141804216" saveSessionState="false" viewPositionX="0" viewPositionY="0">
+            <selectionStack />
+            <errorMarkers />
+            <transactionalProperties />
+            <foldable />
+            <restoreAlways />
+            <enabledHints />
+          </inspectorMemento>
+          <node node_ref="r:3180398c-552f-4226-a34c-a00e166902fa(main@generator)/653786840142103363" />
         </state>
       </provider>
     </entry>

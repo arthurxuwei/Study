@@ -16,6 +16,8 @@ import jetbrains.mps.smodel.adapter.ids.PrimitiveTypeId;
 public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptCanvas = createDescriptorForCanvas();
   /*package*/ final ConceptDescriptor myConceptCircle = createDescriptorForCircle();
+  /*package*/ final ConceptDescriptor myConceptColor = createDescriptorForColor();
+  /*package*/ final ConceptDescriptor myConceptColorReference = createDescriptorForColorReference();
   /*package*/ final ConceptDescriptor myConceptShape = createDescriptorForShape();
   /*package*/ final ConceptDescriptor myConceptSquare = createDescriptorForSquare();
   private final LanguageConceptSwitch myIndexSwitch;
@@ -32,7 +34,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptCanvas, myConceptCircle, myConceptShape, myConceptSquare);
+    return Arrays.asList(myConceptCanvas, myConceptCircle, myConceptColor, myConceptColorReference, myConceptShape, myConceptSquare);
   }
 
   @Override
@@ -43,6 +45,10 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptCanvas;
       case LanguageConceptSwitch.Circle:
         return myConceptCircle;
+      case LanguageConceptSwitch.Color:
+        return myConceptColor;
+      case LanguageConceptSwitch.ColorReference:
+        return myConceptColorReference;
       case LanguageConceptSwitch.Shape:
         return myConceptShape;
       case LanguageConceptSwitch.Square:
@@ -65,6 +71,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("Tortilla", "Canvas", 0x3b690b42594e46b6L, 0xb96ff010313cf097L, 0xbfc5e32aba9974bL);
     b.class_(false, false, true);
     b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L);
+    b.parent(0x4caf0310491e41f5L, 0x8a9b2006b3a94898L, 0x40c1a7cb987d20d5L);
     b.origin("r:4b93e23c-85d5-42ff-b8c1-3edc1281dd68(Tortilla.structure)/863668800269686603");
     b.version(2);
     b.aggregate("shapes", 0xbfc5e32aba99750L).target(0x3b690b42594e46b6L, 0xb96ff010313cf097L, 0xbfc5e32aba99742L).optional(true).ordered(true).multiple(true).origin("863668800269686608").done();
@@ -82,11 +89,29 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.alias("circle");
     return b.create();
   }
+  private static ConceptDescriptor createDescriptorForColor() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("Tortilla", "Color", 0x3b690b42594e46b6L, 0xb96ff010313cf097L, 0x912b7aacd75d7dbL);
+    b.class_(false, false, true);
+    b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L);
+    b.origin("r:4b93e23c-85d5-42ff-b8c1-3edc1281dd68(Tortilla.structure)/653786840141518811");
+    b.version(2);
+    b.alias("color");
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForColorReference() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("Tortilla", "ColorReference", 0x3b690b42594e46b6L, 0xb96ff010313cf097L, 0x912b7aacd7735ebL);
+    b.class_(false, false, false);
+    b.origin("r:4b93e23c-85d5-42ff-b8c1-3edc1281dd68(Tortilla.structure)/653786840141608427");
+    b.version(2);
+    b.associate("target", 0x912b7aacd7735ecL).target(0x3b690b42594e46b6L, 0xb96ff010313cf097L, 0x912b7aacd75d7dbL).optional(false).origin("653786840141608428").done();
+    return b.create();
+  }
   private static ConceptDescriptor createDescriptorForShape() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("Tortilla", "Shape", 0x3b690b42594e46b6L, 0xb96ff010313cf097L, 0xbfc5e32aba99742L);
     b.class_(false, true, false);
     b.origin("r:4b93e23c-85d5-42ff-b8c1-3edc1281dd68(Tortilla.structure)/863668800269686594");
     b.version(2);
+    b.aggregate("color", 0x912b7aacd7735fcL).target(0x3b690b42594e46b6L, 0xb96ff010313cf097L, 0x912b7aacd7735ebL).optional(false).ordered(true).multiple(false).origin("653786840141608444").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForSquare() {
