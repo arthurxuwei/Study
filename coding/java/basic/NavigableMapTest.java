@@ -1,7 +1,3 @@
-import sun.java2d.pipe.SpanShapeRenderer;
-
-import java.awt.*;
-import java.awt.geom.Arc2D;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.List;
@@ -10,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by arthur.xw on 2015/5/20.
  */
-public class test {
+public class NavigableMapTest {
     public static void main(String[] args) {
         long millisPerHour = TimeUnit.HOURS.toMillis(1);
         Calendar cal = Calendar.getInstance();

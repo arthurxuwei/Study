@@ -8,15 +8,17 @@ import java.net.URI;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.Arrays;
+import java.util.Collections;
 import javax.tools.JavaCompiler.CompilationTask;
 
 public class CompileAndRun {
-    public static void main(String args[]) throws IOException {
+    public static void main(String[] args) throws IOException {
         JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
         DiagnosticCollector<JavaFileObject> diagnostics = new DiagnosticCollector<JavaFileObject>();
 
         StringWriter writer =  new StringWriter();
         PrintWriter out = new PrintWriter(writer);
+        out.println("package com.arthur;");
         out.println("public class HelloWorld {");
         out.println("  public static void main(String args[]) {");
         out.println("    System.out.println(\"This is in another java file\");");
@@ -26,8 +28,14 @@ public class CompileAndRun {
 
         JavaFileObject file = new JavaSourceFromString("HelloWorld", writer.toString());
 
-        Iterable<? extends JavaFileObject> compilationUnits = Arrays.asList(file);
-        CompilationTask task = compiler.getTask(null, null, diagnostics, null, null, compilationUnits);
+        File distDir = new File("target/self");
+        if (!distDir.exists()) {
+            assert distDir.mkdirs();
+        }
+
+        Iterable<? extends JavaFileObject> compilationUnits = Collections.singletonList(file);
+        CompilationTask task = compiler.getTask(null, null, diagnostics,
+                Arrays.asList("-d", distDir.getAbsolutePath()), null, compilationUnits);
 
         boolean success = task.call();
         for (Diagnostic diagnostic : diagnostics.getDiagnostics()) {
@@ -43,14 +51,10 @@ public class CompileAndRun {
 
         if(success) {
             try {
-//                File f = new File("D:/workspace");
-//                URL[] cp = {f.toURI().toURL()};
-//                URLClassLoader urlcl = new URLClassLoader(cp);
-//                Class clazz = urlcl.loadClass("HelloWorld");
-//                clazz.getDeclaredMethod("main", new Class[]{String[].class})
-//                        .invoke(null, new Object[]{null});
-                Class.forName("HelloWorld").getDeclaredMethod("main", new Class[]{String[].class})
-                        .invoke(null, new Object[]{null});
+                URL[] urls = new URL[] {new File(distDir.getAbsolutePath()).toURI().toURL()};
+                URLClassLoader urlcl = new URLClassLoader(urls);
+                Class clazz = urlcl.loadClass("com.arthur.HelloWorld");
+                clazz.getDeclaredMethod("main", new Class[]{String[].class}).invoke(null, new Object[]{null});
             } catch (ClassNotFoundException e) {
                 System.err.println("Class not found: " + e);
             } catch (NoSuchMethodException e) {
@@ -68,7 +72,7 @@ class JavaSourceFromString extends SimpleJavaFileObject {
     final String code;
 
     JavaSourceFromString(String name, String code) {
-        super(URI.create("string:///" + name.replace('.', '/') + Kind.SOURCE.extension), Kind.SOURCE);
+        super(URI.create(name.replaceAll("\\.", "/") + Kind.SOURCE.extension), Kind.SOURCE);
         this.code = code;
     }
 
