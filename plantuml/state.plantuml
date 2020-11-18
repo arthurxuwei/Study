@@ -1,0 +1,18 @@
+@startuml stateMachine
+hide empty description
+scale 200 width
+
+[*] --> State1
+State1 --> [*] : Error
+State1 : this is a string
+
+State1 --> State2 : Init
+State2 --> State3 : Process
+
+state State3 {
+    [*] --> State4
+    State4 --> [*]
+}
+
+State3 --> [*] : Success
+@enduml
