@@ -7,3 +7,4 @@
 Pipfile*
 .ipynb*
 *.out
+.DS_Store
