@@ -13,6 +13,7 @@ func main() {
 	})
 	if err != nil {
 		// handle error!
+		return
 	}
 	defer client.Close()
 	ctx, cancel := context.WithTimeout(context.Background(), 3 * time.Second)
