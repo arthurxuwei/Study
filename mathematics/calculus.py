@@ -1,20 +1,19 @@
-from matplotlib import pyplot as plt
-import sympy
+from sympy import *
 
-x = sympy.Symbol('x')
-exp = sympy.exp(x)
+x = Symbol('x')
+exp_x = exp(x)
 
 sums = x
 for i in range(10):
-    numerator = exp.diff(x, i)
+    numerator = exp_x.diff(x, i)
     numerator = numerator.evalf(subs={x: 0})
-    denominator = sympy.factorial(i)
+    denominator = factorial(i)
     sums += numerator / denominator * x**i
 
-print(exp.evalf(subs={x: 0}) - sums.evalf(subs={x: 0}))
+print(exp_x.evalf(subs={x: 0}) - sums.evalf(subs={x: 0}))
 
+print(diff(cos(x), x))
 
-for xval in range(0, 20, 1):
-    plt.plot(xval, exp.evalf(subs={x: xval}), 'bo', xval, sums.evalf(subs={x: xval}), 'ro')
+print(integrate(cos(x), x))
 
-plt.show()
+print(integrate(exp(-x), (x, 0, oo)))
