@@ -1,0 +1,8 @@
+# github.com/moovweb/gokogiri v0.0.0-20180713195410-a1a828153468
+## explicit
+github.com/moovweb/gokogiri
+github.com/moovweb/gokogiri/help
+github.com/moovweb/gokogiri/html
+github.com/moovweb/gokogiri/util
+github.com/moovweb/gokogiri/xml
+github.com/moovweb/gokogiri/xpath

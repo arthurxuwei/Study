@@ -3,14 +3,14 @@ package main
 import (
 	"bytes"
 	"fmt"
+	"github.com/moovweb/gokogiri"
 	"net/http"
 	"regexp"
-	"github.com/moovweb/gokogiri"
 )
 
-func hq_url(gjz string) {
-	so_url := "http://movie.douban.com/subject_search?search_text="
-	resp, err := http.Get(so_url + gjz)
+func hqUrl(gjz string) {
+	soUrl := "https://movie.douban.com/subject_search?search_text="
+	resp, err := http.Get(soUrl + gjz)
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -53,5 +53,5 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 	}
-	hq_url(gjz)
+	hqUrl(gjz)
 }
